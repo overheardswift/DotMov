@@ -1,6 +1,6 @@
 //
 //  NowPlayingCell.swift
-//  DotMov
+//  DMNowPlayingiOS
 //
 //  Created by Bayu Kurniawan on 27/07/23.
 //

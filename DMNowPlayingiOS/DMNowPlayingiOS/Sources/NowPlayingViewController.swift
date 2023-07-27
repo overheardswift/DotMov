@@ -1,8 +1,8 @@
 //
 //  NowPlayingViewController.swift
-//  DotMov
+//  DMNowPlayingiOS
 //
-//  Created by Bayu Kurniawan on 22/07/23.
+//  Created by Bayu Kurniawan on 27/07/23.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ struct Dummy: Hashable {
     let id: Int
 }
 
-final class NowPlayingViewController: UICollectionViewController {
+public final class NowPlayingViewController: UICollectionViewController {
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<Int, Dummy> = {
         return .init(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
@@ -20,11 +20,11 @@ final class NowPlayingViewController: UICollectionViewController {
         }
     }()
     
-    convenience init() {
+    public convenience init() {
         self.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }

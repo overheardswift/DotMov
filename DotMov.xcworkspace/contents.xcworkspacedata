@@ -5,6 +5,6 @@
       location = "container:DotMov.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:DMNowPlayingiOS/DMNowPlayingiOS.xcodeproj">
+      location = "group:/Users/bayukurniawan/Documents/DotMov/DMNowPlayingiOS/DMNowPlaying.xcodeproj">
    </FileRef>
 </Workspace>

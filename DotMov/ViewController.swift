@@ -15,8 +15,7 @@ final class NowPlayingViewController: UICollectionViewController {
     
     private lazy var dataSource: UICollectionViewDiffableDataSource<Int, Dummy> = {
         return .init(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DUMMY", for: indexPath)
-            cell.backgroundColor = .purple
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NowPlayingCell.id, for: indexPath)
             return cell
         }
     }()
@@ -39,12 +38,12 @@ private extension NowPlayingViewController {
     func configureCollectionView() {
         collectionView.collectionViewLayout = createLayout()
         collectionView.dataSource = dataSource
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DUMMY")
+        collectionView.register(NowPlayingCell.self, forCellWithReuseIdentifier: NowPlayingCell.id)
         
         var snapshot = NSDiffableDataSourceSnapshot<Int, Dummy>()
         snapshot.appendSections([0])
         snapshot.appendItems(
-            (0...10).map { id in
+            (0...4).map { id in
                 Dummy(id: id)
             },
             toSection: 0
@@ -72,6 +71,9 @@ private extension NowPlayingViewController {
             
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 20
+            section.contentInsets.leading = 16
+            section.contentInsets.trailing = 16
+            
             return section
         }
     }

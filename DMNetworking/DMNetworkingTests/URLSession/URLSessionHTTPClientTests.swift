@@ -17,8 +17,8 @@ extension XCTestCase {
         return url
     }
     
-    func makeData() -> Data {
-        return Data("any data".utf8)
+    func makeData(isEmpty: Bool = false) -> Data {
+        return isEmpty ? Data() : Data("any data".utf8)
     }
     
     func makeError(_ message: String = "Something went wrong") -> NSError {
@@ -110,6 +110,16 @@ class URLSessionHTTPClientTests: XCTestCase {
         let receivedValues = resultValuesFor(data: data, response: httpResponse, error: nil)
         
         XCTAssertEqual(receivedValues?.data, data)
+        XCTAssertEqual(receivedValues?.response.url, httpResponse?.url)
+        XCTAssertEqual(receivedValues?.response.statusCode, httpResponse?.statusCode)
+    }
+    
+    func test_fetch_request_succeeds_with_empty_data() {
+        let emptyData = makeData(isEmpty: true)
+        let httpResponse = HTTPURLResponse(url: makeURL(), statusCode: 200, httpVersion: nil, headerFields: nil)
+        let receivedValues = resultValuesFor(data: nil, response: httpResponse, error: nil)
+        
+        XCTAssertEqual(receivedValues?.data, emptyData)
         XCTAssertEqual(receivedValues?.response.url, httpResponse?.url)
         XCTAssertEqual(receivedValues?.response.statusCode, httpResponse?.statusCode)
     }

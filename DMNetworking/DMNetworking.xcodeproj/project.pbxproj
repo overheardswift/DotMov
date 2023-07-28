@@ -11,6 +11,7 @@
 		4FD6393C2A73977800688A26 /* DMNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6393B2A73977800688A26 /* DMNetworkingTests.swift */; };
 		4FD6393D2A73977800688A26 /* DMNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD639312A73977800688A26 /* DMNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4FD639472A7397C200688A26 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639462A7397C200688A26 /* URLProtocolStub.swift */; };
+		4FD6394A2A73981B00688A26 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639492A73981B00688A26 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		4FD639362A73977800688A26 /* DMNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DMNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD6393B2A73977800688A26 /* DMNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNetworkingTests.swift; sourceTree = "<group>"; };
 		4FD639462A7397C200688A26 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
+		4FD639492A73981B00688A26 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		4FD639302A73977800688A26 /* DMNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				4FD639482A73981300688A26 /* Sources */,
 				4FD639312A73977800688A26 /* DMNetworking.h */,
 			);
 			path = DMNetworking;
@@ -83,6 +86,14 @@
 				4FD639462A7397C200688A26 /* URLProtocolStub.swift */,
 			);
 			path = DMNetworkingTests;
+			sourceTree = "<group>";
+		};
+		4FD639482A73981300688A26 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4FD639492A73981B00688A26 /* HTTPClient.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 				TargetAttributes = {
 					4FD6392D2A73977800688A26 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					4FD639352A73977800688A26 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -194,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD6394A2A73981B00688A26 /* HTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +352,7 @@
 		4FD639412A73977800688A26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -363,6 +377,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -370,6 +385,7 @@
 		4FD639422A73977800688A26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -401,6 +417,7 @@
 		4FD639442A73977800688A26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 846K69FUHV;
@@ -416,6 +433,7 @@
 		4FD639452A73977800688A26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 846K69FUHV;

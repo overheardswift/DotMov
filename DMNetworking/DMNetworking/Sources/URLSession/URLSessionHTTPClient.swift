@@ -28,11 +28,15 @@ public final class URLSessionHTTPClient: HTTPClient {
     
     public func fetch(_ request: URLRequest, completion: @escaping (Result) -> Void) -> HTTPClientTask {
         let task = session.dataTask(with: request) { data, response, error in
-            if let error {
-                completion(.failure(error))
-            } else {
-                completion(.failure(UnexpectedValuesRepresentation()))
-            }
+            completion(Result {
+                if let error {
+                   throw error
+                } else if let data, let response = response as? HTTPURLResponse {
+                    return (data, response)
+                } else {
+                   throw UnexpectedValuesRepresentation()
+                }
+            })
         }
         
         task.resume()

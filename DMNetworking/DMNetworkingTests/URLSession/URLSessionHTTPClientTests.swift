@@ -41,6 +41,11 @@ class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertEqual(receivedError?.code, error.code)
         XCTAssertEqual(receivedError?.domain, error.domain)
     }
+    
+    func test_fetch_request_fails_on_all_nil_response_values() {
+        let receivedError = resultErrorFor(data: nil, response: nil, error: nil)
+        XCTAssertNotNil(receivedError)
+    }
 }
 
 private extension URLSessionHTTPClientTests {
@@ -56,7 +61,7 @@ private extension URLSessionHTTPClientTests {
         return sut
     }
     
-    func resultErrorFor(data: Data?, response: URLResponse?, error: Error, file: StaticString = #file, line: UInt = #line) -> Error? {
+    func resultErrorFor(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #file, line: UInt = #line) -> Error? {
         URLProtocolStub.stub(data: data, response: response, error: error)
         
         var receivedError: Error? = nil

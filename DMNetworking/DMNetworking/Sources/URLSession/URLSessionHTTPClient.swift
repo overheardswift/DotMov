@@ -30,6 +30,8 @@ public final class URLSessionHTTPClient: HTTPClient {
         let task = session.dataTask(with: request) { data, response, error in
             if let error {
                 completion(.failure(error))
+            } else {
+                completion(.failure(UnexpectedValuesRepresentation()))
             }
         }
         

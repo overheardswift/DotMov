@@ -46,6 +46,27 @@ class URLSessionHTTPClientTests: XCTestCase {
         let receivedError = resultErrorFor(data: nil, response: nil, error: nil)
         XCTAssertNotNil(receivedError)
     }
+    
+    func test_fetch_request_with_predefined_request() {
+        let exp = expectation(description: "Wait for completion")
+        let sut = makeSUT()
+        let requestURL = makeURL()
+        
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "POST"
+        request.setValue("test", forHTTPHeaderField: "query")
+        
+        URLProtocolStub.observeRequests { request in
+            XCTAssertEqual(request.url, requestURL)
+            XCTAssertEqual(request.httpMethod, "POST")
+            XCTAssertEqual(request.value(forHTTPHeaderField: "query"), "test")
+            exp.fulfill()
+        }
+        
+        sut.fetch(request) { _ in }
+        
+        wait(for: [exp], timeout: 1)
+    }
 }
 
 private extension URLSessionHTTPClientTests {

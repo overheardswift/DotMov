@@ -17,6 +17,10 @@ extension XCTestCase {
         return url
     }
     
+    func makeData() -> Data {
+        return Data("any data".utf8)
+    }
+    
     func makeError(_ message: String = "Something went wrong") -> NSError {
         return NSError(domain: "TEST_ERROR", code: -9999, userInfo: nil)
     }
@@ -66,6 +70,38 @@ class URLSessionHTTPClientTests: XCTestCase {
         sut.fetch(request) { _ in }
         
         wait(for: [exp], timeout: 1)
+    }
+    
+    /**
+     These cases should *never* happen, however as ``URLSession`` represents these fields as optional
+     it is possible in some obscure way that this state _could_ exist.
+     
+     | Data?    | URLResponse?      | Error?   |
+     |----------|-------------------|----------|
+     | nil      | nil               | nil      |
+     | nil      | URLResponse       | nil      |
+     | value    | nil               | nil      |
+     | value    | nil               | value    |
+     | nil      | URLResponse       | value    |
+     | nil      | HTTPURLResponse   | value    |
+     | value    | HTTPURLResponse   | value    |
+     | value    | URLResponse       | nil      |
+    */
+    func test_fetch_request_fails_on_invalid_representation_cases() {
+      let nonHTTPURLResponse = URLResponse(url: makeURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+      let httpResponse = HTTPURLResponse(url: makeURL(), statusCode: 200, httpVersion: nil, headerFields: nil)
+      let data = makeData()
+      let error = makeError()
+
+      XCTAssertNotNil(resultErrorFor(data: nil, response: nil, error: nil))
+      XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse, error: nil))
+      XCTAssertNotNil(resultErrorFor(data: data, response: nil, error: nil))
+      XCTAssertNotNil(resultErrorFor(data: data, response: nil, error: error))
+      XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse, error: error))
+      XCTAssertNotNil(resultErrorFor(data: nil, response: httpResponse, error: error))
+      XCTAssertNotNil(resultErrorFor(data: data, response: nonHTTPURLResponse, error: error))
+      XCTAssertNotNil(resultErrorFor(data: data, response: httpResponse, error: error))
+      XCTAssertNotNil(resultErrorFor(data: data, response: nonHTTPURLResponse, error: nil))
     }
 }
 

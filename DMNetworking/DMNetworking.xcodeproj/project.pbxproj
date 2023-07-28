@@ -12,6 +12,8 @@
 		4FD6393D2A73977800688A26 /* DMNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD639312A73977800688A26 /* DMNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4FD639472A7397C200688A26 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639462A7397C200688A26 /* URLProtocolStub.swift */; };
 		4FD6394A2A73981B00688A26 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639492A73981B00688A26 /* HTTPClient.swift */; };
+		4FD6394C2A73991700688A26 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6394B2A73991700688A26 /* URLSessionHTTPClient.swift */; };
+		4FD6394F2A739B2700688A26 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6394E2A739B2700688A26 /* URLSessionHTTPClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,8 @@
 		4FD6393B2A73977800688A26 /* DMNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNetworkingTests.swift; sourceTree = "<group>"; };
 		4FD639462A7397C200688A26 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		4FD639492A73981B00688A26 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		4FD6394B2A73991700688A26 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		4FD6394E2A739B2700688A26 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			children = (
 				4FD6393B2A73977800688A26 /* DMNetworkingTests.swift */,
 				4FD639462A7397C200688A26 /* URLProtocolStub.swift */,
+				4FD639502A739B2D00688A26 /* URLSession */,
 			);
 			path = DMNetworkingTests;
 			sourceTree = "<group>";
@@ -92,8 +97,25 @@
 			isa = PBXGroup;
 			children = (
 				4FD639492A73981B00688A26 /* HTTPClient.swift */,
+				4FD6394D2A73991A00688A26 /* URLSession */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		4FD6394D2A73991A00688A26 /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				4FD6394B2A73991700688A26 /* URLSessionHTTPClient.swift */,
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
+		4FD639502A739B2D00688A26 /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				4FD6394E2A739B2700688A26 /* URLSessionHTTPClientTests.swift */,
+			);
+			path = URLSession;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FD6394A2A73981B00688A26 /* HTTPClient.swift in Sources */,
+				4FD6394C2A73991700688A26 /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FD6393C2A73977800688A26 /* DMNetworkingTests.swift in Sources */,
+				4FD6394F2A739B2700688A26 /* URLSessionHTTPClientTests.swift in Sources */,
 				4FD639472A7397C200688A26 /* URLProtocolStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

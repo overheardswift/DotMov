@@ -7,139 +7,133 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4FD638D52A727A7600688A26 /* DMNowPlayingiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD638D42A727A7600688A26 /* DMNowPlayingiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4FD638DD2A727C0C00688A26 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD638DC2A727C0C00688A26 /* NowPlayingViewController.swift */; };
-		4FD638DF2A727C4400688A26 /* NowPlayingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD638DE2A727C4400688A26 /* NowPlayingCell.swift */; };
-		4FD6391B2A73753300688A26 /* DMCommoniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD6391A2A73753300688A26 /* DMCommoniOS.framework */; };
-		4FD6391C2A73753300688A26 /* DMCommoniOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD6391A2A73753300688A26 /* DMCommoniOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4FD639072A736FFC00688A26 /* DMCommoniOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD639062A736FFC00688A26 /* DMCommoniOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4FD639152A7371C300688A26 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639142A7371C300688A26 /* UIFont+Ext.swift */; };
+		4FD6391F2A7377E500688A26 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FD6391E2A7377E200688A26 /* Poppins-Regular.ttf */; };
+		4FD639212A737C9100688A26 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FD639202A7377F800688A26 /* Poppins-SemiBold.ttf */; };
+		4FD639232A73954500688A26 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639222A73954500688A26 /* UIColor+Ext.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		4FD6391D2A73753300688A26 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4FD6391C2A73753300688A26 /* DMCommoniOS.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		4FD638D12A727A7600688A26 /* DMNowPlayingiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMNowPlayingiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FD638D42A727A7600688A26 /* DMNowPlayingiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMNowPlayingiOS.h; sourceTree = "<group>"; };
-		4FD638DC2A727C0C00688A26 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
-		4FD638DE2A727C4400688A26 /* NowPlayingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingCell.swift; sourceTree = "<group>"; };
-		4FD6391A2A73753300688A26 /* DMCommoniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMCommoniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD639032A736FFC00688A26 /* DMCommoniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMCommoniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD639062A736FFC00688A26 /* DMCommoniOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMCommoniOS.h; sourceTree = "<group>"; };
+		4FD639142A7371C300688A26 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		4FD6391E2A7377E200688A26 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		4FD639202A7377F800688A26 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		4FD639222A73954500688A26 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4FD638CE2A727A7600688A26 /* Frameworks */ = {
+		4FD639002A736FFC00688A26 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FD6391B2A73753300688A26 /* DMCommoniOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4FD638C72A727A7600688A26 = {
+		4FD638F92A736FFC00688A26 = {
 			isa = PBXGroup;
 			children = (
-				4FD638D32A727A7600688A26 /* DMNowPlayingiOS */,
-				4FD638D22A727A7600688A26 /* Products */,
-				4FD639192A7374DA00688A26 /* Frameworks */,
+				4FD639052A736FFC00688A26 /* DMCommoniOS */,
+				4FD639042A736FFC00688A26 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4FD638D22A727A7600688A26 /* Products */ = {
+		4FD639042A736FFC00688A26 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4FD638D12A727A7600688A26 /* DMNowPlayingiOS.framework */,
+				4FD639032A736FFC00688A26 /* DMCommoniOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4FD638D32A727A7600688A26 /* DMNowPlayingiOS */ = {
+		4FD639052A736FFC00688A26 /* DMCommoniOS */ = {
 			isa = PBXGroup;
 			children = (
-				4FD638DB2A727BF900688A26 /* Sources */,
-				4FD638D42A727A7600688A26 /* DMNowPlayingiOS.h */,
+				4FD6390D2A73705500688A26 /* Sources */,
+				4FD639062A736FFC00688A26 /* DMCommoniOS.h */,
 			);
-			path = DMNowPlayingiOS;
+			path = DMCommoniOS;
 			sourceTree = "<group>";
 		};
-		4FD638DB2A727BF900688A26 /* Sources */ = {
+		4FD6390D2A73705500688A26 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4FD638DC2A727C0C00688A26 /* NowPlayingViewController.swift */,
-				4FD638DE2A727C4400688A26 /* NowPlayingCell.swift */,
+				4FD639132A7371AE00688A26 /* Extensions */,
+				4FD6390E2A73705D00688A26 /* Resources */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		4FD639192A7374DA00688A26 /* Frameworks */ = {
+		4FD6390E2A73705D00688A26 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4FD6391A2A73753300688A26 /* DMCommoniOS.framework */,
+				4FD639202A7377F800688A26 /* Poppins-SemiBold.ttf */,
+				4FD6391E2A7377E200688A26 /* Poppins-Regular.ttf */,
 			);
-			name = Frameworks;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4FD639132A7371AE00688A26 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4FD639142A7371C300688A26 /* UIFont+Ext.swift */,
+				4FD639222A73954500688A26 /* UIColor+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4FD638CC2A727A7600688A26 /* Headers */ = {
+		4FD638FE2A736FFC00688A26 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FD638D52A727A7600688A26 /* DMNowPlayingiOS.h in Headers */,
+				4FD639072A736FFC00688A26 /* DMCommoniOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4FD638D02A727A7600688A26 /* DMNowPlayingiOS */ = {
+		4FD639022A736FFC00688A26 /* DMCommoniOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FD638D82A727A7600688A26 /* Build configuration list for PBXNativeTarget "DMNowPlayingiOS" */;
+			buildConfigurationList = 4FD6390A2A736FFC00688A26 /* Build configuration list for PBXNativeTarget "DMCommoniOS" */;
 			buildPhases = (
-				4FD638CC2A727A7600688A26 /* Headers */,
-				4FD638CD2A727A7600688A26 /* Sources */,
-				4FD638CE2A727A7600688A26 /* Frameworks */,
-				4FD638CF2A727A7600688A26 /* Resources */,
-				4FD6391D2A73753300688A26 /* Embed Frameworks */,
+				4FD638FE2A736FFC00688A26 /* Headers */,
+				4FD638FF2A736FFC00688A26 /* Sources */,
+				4FD639002A736FFC00688A26 /* Frameworks */,
+				4FD639012A736FFC00688A26 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = DMNowPlayingiOS;
-			productName = DMNowPlayingiOS;
-			productReference = 4FD638D12A727A7600688A26 /* DMNowPlayingiOS.framework */;
+			name = DMCommoniOS;
+			productName = DMCommoniOS;
+			productReference = 4FD639032A736FFC00688A26 /* DMCommoniOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4FD638C82A727A7600688A26 /* Project object */ = {
+		4FD638FA2A736FFC00688A26 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					4FD638D02A727A7600688A26 = {
+					4FD639022A736FFC00688A26 = {
 						CreatedOnToolsVersion = 14.3.1;
 						LastSwiftMigration = 1430;
 					};
 				};
 			};
-			buildConfigurationList = 4FD638CB2A727A7600688A26 /* Build configuration list for PBXProject "DMNowPlaying" */;
+			buildConfigurationList = 4FD638FD2A736FFC00688A26 /* Build configuration list for PBXProject "DMCommon" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -147,40 +141,42 @@
 				en,
 				Base,
 			);
-			mainGroup = 4FD638C72A727A7600688A26;
-			productRefGroup = 4FD638D22A727A7600688A26 /* Products */;
+			mainGroup = 4FD638F92A736FFC00688A26;
+			productRefGroup = 4FD639042A736FFC00688A26 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4FD638D02A727A7600688A26 /* DMNowPlayingiOS */,
+				4FD639022A736FFC00688A26 /* DMCommoniOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4FD638CF2A727A7600688A26 /* Resources */ = {
+		4FD639012A736FFC00688A26 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD6391F2A7377E500688A26 /* Poppins-Regular.ttf in Resources */,
+				4FD639212A737C9100688A26 /* Poppins-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4FD638CD2A727A7600688A26 /* Sources */ = {
+		4FD638FF2A736FFC00688A26 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FD638DD2A727C0C00688A26 /* NowPlayingViewController.swift in Sources */,
-				4FD638DF2A727C4400688A26 /* NowPlayingCell.swift in Sources */,
+				4FD639152A7371C300688A26 /* UIFont+Ext.swift in Sources */,
+				4FD639232A73954500688A26 /* UIColor+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		4FD638D62A727A7600688A26 /* Debug */ = {
+		4FD639082A736FFC00688A26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,7 +239,7 @@
 			};
 			name = Debug;
 		};
-		4FD638D72A727A7600688A26 /* Release */ = {
+		4FD639092A736FFC00688A26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -300,7 +296,7 @@
 			};
 			name = Release;
 		};
-		4FD638D92A727A7600688A26 /* Debug */ = {
+		4FD6390B2A736FFC00688A26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -323,7 +319,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.overheardswift.DMNowPlayingiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overheardswift.DMCommoniOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -333,7 +329,7 @@
 			};
 			name = Debug;
 		};
-		4FD638DA2A727A7600688A26 /* Release */ = {
+		4FD6390C2A736FFC00688A26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -356,7 +352,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.overheardswift.DMNowPlayingiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overheardswift.DMCommoniOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -368,25 +364,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4FD638CB2A727A7600688A26 /* Build configuration list for PBXProject "DMNowPlaying" */ = {
+		4FD638FD2A736FFC00688A26 /* Build configuration list for PBXProject "DMCommon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4FD638D62A727A7600688A26 /* Debug */,
-				4FD638D72A727A7600688A26 /* Release */,
+				4FD639082A736FFC00688A26 /* Debug */,
+				4FD639092A736FFC00688A26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FD638D82A727A7600688A26 /* Build configuration list for PBXNativeTarget "DMNowPlayingiOS" */ = {
+		4FD6390A2A736FFC00688A26 /* Build configuration list for PBXNativeTarget "DMCommoniOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4FD638D92A727A7600688A26 /* Debug */,
-				4FD638DA2A727A7600688A26 /* Release */,
+				4FD6390B2A736FFC00688A26 /* Debug */,
+				4FD6390C2A736FFC00688A26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4FD638C82A727A7600688A26 /* Project object */;
+	rootObject = 4FD638FA2A736FFC00688A26 /* Project object */;
 }

@@ -13,6 +13,8 @@
 		4F96BB7B2A6BC487008F933D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F96BB792A6BC487008F933D /* LaunchScreen.storyboard */; };
 		4FD638E22A727C9F00688A26 /* DMNowPlayingiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD638E12A727C9F00688A26 /* DMNowPlayingiOS.framework */; };
 		4FD638E32A727C9F00688A26 /* DMNowPlayingiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD638E12A727C9F00688A26 /* DMNowPlayingiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4FD639172A73746A00688A26 /* DMCommoniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639162A73746A00688A26 /* DMCommoniOS.framework */; };
+		4FD639182A73746A00688A26 /* DMCommoniOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639162A73746A00688A26 /* DMCommoniOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,6 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4FD639182A73746A00688A26 /* DMCommoniOS.framework in Embed Frameworks */,
 				4FD638E32A727C9F00688A26 /* DMNowPlayingiOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -37,6 +40,7 @@
 		4F96BB7A2A6BC487008F933D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F96BB7C2A6BC487008F933D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FD638E12A727C9F00688A26 /* DMNowPlayingiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMNowPlayingiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD639162A73746A00688A26 /* DMCommoniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMCommoniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD639172A73746A00688A26 /* DMCommoniOS.framework in Frameworks */,
 				4FD638E22A727C9F00688A26 /* DMNowPlayingiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +88,7 @@
 		4FD638E02A727C9F00688A26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FD639162A73746A00688A26 /* DMCommoniOS.framework */,
 				4FD638E12A727C9F00688A26 /* DMNowPlayingiOS.framework */,
 			);
 			name = Frameworks;

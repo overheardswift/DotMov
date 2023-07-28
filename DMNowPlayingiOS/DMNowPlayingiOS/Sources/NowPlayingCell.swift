@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DMCommoniOS
 
 final class NowPlayingCell: UICollectionViewCell {
     
@@ -39,7 +40,7 @@ private extension NowPlayingCell {
     
     func configureThumbnailImageView() {
         thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
-        thumbnailImageView.backgroundColor = .systemGray4
+        thumbnailImageView.backgroundColor = .cloud
         thumbnailImageView.layer.cornerRadius = 4
         
         contentView.addSubview(thumbnailImageView)
@@ -77,7 +78,7 @@ private extension NowPlayingCell {
     }
     
     func configureTitleLabel() {
-        titleLabel.font = .systemFont(ofSize: 16)
+        titleLabel.font = .poppins(.regular, size: 16)
         titleLabel.textColor = .black
         titleLabel.text = "Movie Title"
         
@@ -85,8 +86,8 @@ private extension NowPlayingCell {
     }
     
     func configureYearLabel() {
-        yearLabel.font = .systemFont(ofSize: 16)
-        yearLabel.textColor = .darkGray
+        yearLabel.font = .poppins(.regular, size: 16)
+        yearLabel.textColor = .boulder
         yearLabel.text = "2023"
         
         rightContentStackView.addArrangedSubview(yearLabel)
@@ -94,8 +95,8 @@ private extension NowPlayingCell {
     
     func configureCategoryLabel() {
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
-        categoryLabel.font = .systemFont(ofSize: 12)
-        categoryLabel.textColor = .lightGray
+        categoryLabel.font = .poppins(.regular, size: 12)
+        categoryLabel.textColor = .boulder
         categoryLabel.text = "Drama, Asia, Comedy, Series"
         
         contentView.addSubview(categoryLabel)

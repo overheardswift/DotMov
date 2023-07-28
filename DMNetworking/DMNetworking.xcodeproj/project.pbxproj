@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4FD639372A73977800688A26 /* DMNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD6392E2A73977800688A26 /* DMNetworking.framework */; };
-		4FD6393C2A73977800688A26 /* DMNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6393B2A73977800688A26 /* DMNetworkingTests.swift */; };
 		4FD6393D2A73977800688A26 /* DMNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD639312A73977800688A26 /* DMNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4FD639472A7397C200688A26 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639462A7397C200688A26 /* URLProtocolStub.swift */; };
 		4FD6394A2A73981B00688A26 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639492A73981B00688A26 /* HTTPClient.swift */; };
 		4FD6394C2A73991700688A26 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6394B2A73991700688A26 /* URLSessionHTTPClient.swift */; };
 		4FD6394F2A739B2700688A26 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6394E2A739B2700688A26 /* URLSessionHTTPClientTests.swift */; };
+		4FD639522A73B37800688A26 /* XCTestCase+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639512A73B37800688A26 /* XCTestCase+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,11 +30,11 @@
 		4FD6392E2A73977800688A26 /* DMNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD639312A73977800688A26 /* DMNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMNetworking.h; sourceTree = "<group>"; };
 		4FD639362A73977800688A26 /* DMNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DMNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FD6393B2A73977800688A26 /* DMNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMNetworkingTests.swift; sourceTree = "<group>"; };
 		4FD639462A7397C200688A26 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		4FD639492A73981B00688A26 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4FD6394B2A73991700688A26 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		4FD6394E2A739B2700688A26 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
+		4FD639512A73B37800688A26 /* XCTestCase+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +86,8 @@
 		4FD6393A2A73977800688A26 /* DMNetworkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				4FD6393B2A73977800688A26 /* DMNetworkingTests.swift */,
-				4FD639462A7397C200688A26 /* URLProtocolStub.swift */,
 				4FD639502A739B2D00688A26 /* URLSession */,
+				4FD639532A73B39400688A26 /* Utils */,
 			);
 			path = DMNetworkingTests;
 			sourceTree = "<group>";
@@ -116,6 +115,15 @@
 				4FD6394E2A739B2700688A26 /* URLSessionHTTPClientTests.swift */,
 			);
 			path = URLSession;
+			sourceTree = "<group>";
+		};
+		4FD639532A73B39400688A26 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4FD639462A7397C200688A26 /* URLProtocolStub.swift */,
+				4FD639512A73B37800688A26 /* XCTestCase+Ext.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,8 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FD6393C2A73977800688A26 /* DMNetworkingTests.swift in Sources */,
 				4FD6394F2A739B2700688A26 /* URLSessionHTTPClientTests.swift in Sources */,
+				4FD639522A73B37800688A26 /* XCTestCase+Ext.swift in Sources */,
 				4FD639472A7397C200688A26 /* URLProtocolStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

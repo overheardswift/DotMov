@@ -23,6 +23,7 @@
 		4FD6397A2A74F85900688A26 /* DMNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639782A74F85900688A26 /* DMNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FD6397D2A74FA2200688A26 /* XCTestCase+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6397C2A74FA2200688A26 /* XCTestCase+Ext.swift */; };
 		4FD6397F2A74FB9200688A26 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6397E2A74FB9200688A26 /* HTTPClientSpy.swift */; };
+		4FD639812A75066100688A26 /* NowPlayingItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639802A75066100688A26 /* NowPlayingItemsMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		4FD639782A74F85900688A26 /* DMNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD6397C2A74FA2200688A26 /* XCTestCase+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Ext.swift"; sourceTree = "<group>"; };
 		4FD6397E2A74FB9200688A26 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		4FD639802A75066100688A26 /* NowPlayingItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingItemsMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			children = (
 				4FD639752A74F7EB00688A26 /* Feature */,
 				4FD639762A74F80E00688A26 /* RemoteNowPlayingLoader.swift */,
+				4FD639802A75066100688A26 /* NowPlayingItemsMapper.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				4FD639702A74F5F900688A26 /* NowPlayingLoader.swift in Sources */,
 				4FD639742A74F73C00688A26 /* NowPlayingItem.swift in Sources */,
 				4FD639772A74F80E00688A26 /* RemoteNowPlayingLoader.swift in Sources */,
+				4FD639812A75066100688A26 /* NowPlayingItemsMapper.swift in Sources */,
 				4FD639722A74F6D600688A26 /* NowPlayingFeed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

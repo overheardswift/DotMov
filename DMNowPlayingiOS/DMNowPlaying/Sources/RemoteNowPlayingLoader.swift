@@ -33,10 +33,8 @@ public final class RemoteNowPlayingLoader: NowPlayingLoader {
         
         client.fetch(request) { result in
             switch result {
-            case let .success(values):
-                guard values.response.statusCode == 200 else {
-                    return completion(.failure(Error.invalidResponse))
-                }
+            case let .success((data, response)):
+                completion(RemoteNowPlayingLoader.map(data, from: response))
             case .failure:
                 completion(.failure(Error.connectivity))
             }
@@ -58,5 +56,38 @@ private extension RemoteNowPlayingLoader {
         ]
         
         return urlComponents?.url ?? requestURL
+    }
+    
+    static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
+        do {
+            let items = try NowPlayingItemsMapper.map(data, from: response)
+            return .success(items.asPageDTO)
+        } catch {
+            return .failure(error)
+        }
+    }
+}
+
+private extension RemoteNowPlayingFeed {
+    var asPageDTO: NowPlayingFeed {
+        return NowPlayingFeed(
+            items: results.asCardDTO,
+            page: page,
+            totalPages: total_pages
+        )
+    }
+}
+
+private extension Array where Element == RemoteNowPlayingFeed.RemoteNowPlayingItem {
+    var asCardDTO: [NowPlayingItem] {
+        return map { item in
+            NowPlayingItem(
+                id: item.id,
+                title: item.original_title,
+                imagePath: item.poster_path ?? "",
+                releaseDate: item.release_date ?? "",
+                genreIds: item.genre_ids ?? []
+            )
+        }
     }
 }

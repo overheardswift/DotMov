@@ -65,6 +65,15 @@ class RemoteNowPlayingLoaderTests: XCTestCase {
         client.completes(withStatusCode: 200, data: invalidJSONData)
       })
     }
+    
+    func test_execute_delivers_empty_collection_on_success_response_with_no_items() {
+      let (sut, client) = makeSUT()
+      let emptyPage = makeNowPlayingFeed(items: [], pageNumber: 1, totalPages: 1)
+      let emptyPageData = makeItemsJSONData(for: emptyPage.json)
+      expect(sut, toCompleteWith: .success(emptyPage.model), when: {
+        client.completes(withStatusCode: 200, data: emptyPageData)
+      })
+    }
 }
 
 private extension RemoteNowPlayingLoaderTests {
@@ -98,5 +107,45 @@ private extension RemoteNowPlayingLoaderTests {
     
     func failure(_ error: RemoteNowPlayingLoader.Error) -> NowPlayingLoader.Result {
       return .failure(error)
+    }
+    
+    func makeNowPlayingFeed(items: [(model: NowPlayingItem, json: [String : Any])] = [], pageNumber: Int = 0, totalPages: Int = 1) -> (model: NowPlayingFeed, json: [String: Any]) {
+
+      let model = NowPlayingFeed(
+        items: items.map { $0.model },
+        page: pageNumber,
+        totalPages: totalPages
+      )
+
+      let json: [String: Any] = [
+        "results": items.map { $0.json },
+        "page": pageNumber,
+        "total_pages": totalPages
+      ]
+
+      return (model, json.compactMapValues { $0 })
+    }
+
+    func makeItemsJSONData(for items: [String: Any]) -> Data {
+      let data = try! JSONSerialization.data(withJSONObject: items)
+      return data
+    }
+    
+    func makeNowPlayingCard(id: Int, title: String? = nil, imagePath: String? = nil ) -> (model: NowPlayingItem, json: [String: Any]) {
+      let model = NowPlayingItem(
+        id: id,
+        title: title ?? UUID().uuidString,
+        imagePath: imagePath ?? "\(UUID().uuidString).jpg",
+        releaseDate: "2023-01-01",
+        genreIds: [1, 2, 3]
+      )
+
+      let json: [String: Any] = [
+        "id": model.id,
+        "original_title": model.title,
+        "poster_path": model.imagePath
+      ]
+
+      return (model, json)
     }
 }

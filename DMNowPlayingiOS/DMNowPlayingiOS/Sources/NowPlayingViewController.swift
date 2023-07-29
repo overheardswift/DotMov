@@ -7,13 +7,9 @@
 
 import UIKit
 
-struct Dummy: Hashable {
-    let id: Int
-}
-
 public final class NowPlayingViewController: UICollectionViewController {
     
-    private lazy var dataSource: UICollectionViewDiffableDataSource<Int, Dummy> = {
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Int, String> = {
         return .init(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NowPlayingCell.id, for: indexPath)
             return cell
@@ -40,11 +36,11 @@ private extension NowPlayingViewController {
         collectionView.dataSource = dataSource
         collectionView.register(NowPlayingCell.self, forCellWithReuseIdentifier: NowPlayingCell.id)
         
-        var snapshot = NSDiffableDataSourceSnapshot<Int, Dummy>()
+        var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
         snapshot.appendSections([0])
         snapshot.appendItems(
             (0...4).map { id in
-                Dummy(id: id)
+                String(id)
             },
             toSection: 0
         )

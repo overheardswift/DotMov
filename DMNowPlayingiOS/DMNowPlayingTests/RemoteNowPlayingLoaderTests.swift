@@ -74,6 +74,16 @@ class RemoteNowPlayingLoaderTests: XCTestCase {
         client.completes(withStatusCode: 200, data: emptyPageData)
       })
     }
+    
+    func test_execute_delivers_now_playing_feed_on_success_response_with_items() {
+      let (sut, client) = makeSUT()
+      let items = Array(0..<3).map { index in makeNowPlayingItem(id: index) }
+      let page = makeNowPlayingFeed(items: items, pageNumber: 1, totalPages: 1)
+      let pageData = makeItemsJSONData(for: page.json)
+      expect(sut, toCompleteWith: .success(page.model), when: {
+        client.completes(withStatusCode: 200, data: pageData)
+      })
+    }
 }
 
 private extension RemoteNowPlayingLoaderTests {
@@ -131,7 +141,7 @@ private extension RemoteNowPlayingLoaderTests {
       return data
     }
     
-    func makeNowPlayingCard(id: Int, title: String? = nil, imagePath: String? = nil ) -> (model: NowPlayingItem, json: [String: Any]) {
+    func makeNowPlayingItem(id: Int, title: String? = nil, imagePath: String? = nil ) -> (model: NowPlayingItem, json: [String: Any]) {
       let model = NowPlayingItem(
         id: id,
         title: title ?? UUID().uuidString,
@@ -143,7 +153,9 @@ private extension RemoteNowPlayingLoaderTests {
       let json: [String: Any] = [
         "id": model.id,
         "original_title": model.title,
-        "poster_path": model.imagePath
+        "poster_path": model.imagePath,
+        "release_date": model.releaseDate,
+        "genre_ids": model.genreIds
       ]
 
       return (model, json)

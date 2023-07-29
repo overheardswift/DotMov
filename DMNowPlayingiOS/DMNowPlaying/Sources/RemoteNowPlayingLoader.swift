@@ -31,7 +31,9 @@ public final class RemoteNowPlayingLoader: NowPlayingLoader {
     public func execute(_ req: PagedNowPlayingRequest, completion: @escaping (Result) -> Void) {
         let request = URLRequest(url: enrich(baseURL, with: req))
         
-        client.fetch(request) { result in
+        client.fetch(request) { [weak self] result in
+            guard self != nil else { return }
+            
             switch result {
             case let .success((data, response)):
                 completion(RemoteNowPlayingLoader.map(data, from: response))

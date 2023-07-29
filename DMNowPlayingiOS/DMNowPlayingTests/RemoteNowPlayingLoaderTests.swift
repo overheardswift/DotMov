@@ -84,6 +84,18 @@ class RemoteNowPlayingLoaderTests: XCTestCase {
         client.completes(withStatusCode: 200, data: pageData)
       })
     }
+    
+    func test_does_not_invoke_completion_once_instance_has_been_deallocated() {
+      let client = HTTPClientSpy()
+      var sut: NowPlayingLoader? = RemoteNowPlayingLoader(baseURL: makeURL(), client: client)
+
+      var result: Any? = nil
+      sut?.execute(.init(page: 1), completion: { result = $0 })
+      sut = nil
+
+      client.completes(withStatusCode: 200, data: makeData())
+      XCTAssertNil(result)
+    }
 }
 
 private extension RemoteNowPlayingLoaderTests {

@@ -45,6 +45,18 @@ class RemoteNowPlayingLoaderTests: XCTestCase {
             client.completes(with: error)
         })
     }
+    
+    func test_execute_delivers_error_on_non_success_response() {
+        let (sut, client) = makeSUT()
+        let nonSuccessStatusCodes = [299, 300, 399, 400, 418, 499, 500]
+        let data = makeData()
+        
+        nonSuccessStatusCodes.indices.forEach { index in
+            expect(sut, toCompleteWith: failure(.invalidResponse), when: {
+                client.completes(withStatusCode: nonSuccessStatusCodes[index], data: data, at: index)
+            })
+        }
+    }
 }
 
 private extension RemoteNowPlayingLoaderTests {

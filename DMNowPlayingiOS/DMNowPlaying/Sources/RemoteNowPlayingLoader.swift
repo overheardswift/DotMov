@@ -33,9 +33,12 @@ public final class RemoteNowPlayingLoader: NowPlayingLoader {
         
         client.fetch(request) { result in
             switch result {
+            case let .success(values):
+                guard values.response.statusCode == 200 else {
+                    return completion(.failure(Error.invalidResponse))
+                }
             case .failure:
                 completion(.failure(Error.connectivity))
-            default: break
             }
         }
     }

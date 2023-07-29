@@ -13,7 +13,7 @@
 		4FD6391B2A73753300688A26 /* DMCommoniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD6391A2A73753300688A26 /* DMCommoniOS.framework */; };
 		4FD6391C2A73753300688A26 /* DMCommoniOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD6391A2A73753300688A26 /* DMCommoniOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FD639612A74F57600688A26 /* DMNowPlaying.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639592A74F57600688A26 /* DMNowPlaying.framework */; };
-		4FD639662A74F57600688A26 /* LoadNowPlayingFromRemoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639652A74F57600688A26 /* LoadNowPlayingFromRemoteUseCase.swift */; };
+		4FD639662A74F57600688A26 /* RemoteNowPlayingLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639652A74F57600688A26 /* RemoteNowPlayingLoaderTests.swift */; };
 		4FD639672A74F57600688A26 /* DMNowPlaying.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD6395B2A74F57600688A26 /* DMNowPlaying.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4FD639702A74F5F900688A26 /* NowPlayingLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6396F2A74F5F900688A26 /* NowPlayingLoader.swift */; };
 		4FD639722A74F6D600688A26 /* NowPlayingFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639712A74F6D600688A26 /* NowPlayingFeed.swift */; };
@@ -69,7 +69,7 @@
 		4FD639592A74F57600688A26 /* DMNowPlaying.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMNowPlaying.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD6395B2A74F57600688A26 /* DMNowPlaying.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMNowPlaying.h; sourceTree = "<group>"; };
 		4FD639602A74F57600688A26 /* DMNowPlayingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DMNowPlayingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FD639652A74F57600688A26 /* LoadNowPlayingFromRemoteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNowPlayingFromRemoteUseCase.swift; sourceTree = "<group>"; };
+		4FD639652A74F57600688A26 /* RemoteNowPlayingLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNowPlayingLoaderTests.swift; sourceTree = "<group>"; };
 		4FD6396F2A74F5F900688A26 /* NowPlayingLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingLoader.swift; sourceTree = "<group>"; };
 		4FD639712A74F6D600688A26 /* NowPlayingFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingFeed.swift; sourceTree = "<group>"; };
 		4FD639732A74F73C00688A26 /* NowPlayingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingItem.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		4FD639642A74F57600688A26 /* DMNowPlayingTests */ = {
 			isa = PBXGroup;
 			children = (
-				4FD639652A74F57600688A26 /* LoadNowPlayingFromRemoteUseCase.swift */,
+				4FD639652A74F57600688A26 /* RemoteNowPlayingLoaderTests.swift */,
 				4FD6397C2A74FA2200688A26 /* XCTestCase+Ext.swift */,
 				4FD6397E2A74FB9200688A26 /* HTTPClientSpy.swift */,
 			);
@@ -365,7 +365,7 @@
 			files = (
 				4FD6397D2A74FA2200688A26 /* XCTestCase+Ext.swift in Sources */,
 				4FD6397F2A74FB9200688A26 /* HTTPClientSpy.swift in Sources */,
-				4FD639662A74F57600688A26 /* LoadNowPlayingFromRemoteUseCase.swift in Sources */,
+				4FD639662A74F57600688A26 /* RemoteNowPlayingLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

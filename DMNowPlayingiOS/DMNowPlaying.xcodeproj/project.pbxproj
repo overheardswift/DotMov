@@ -24,10 +24,19 @@
 		4FD6397D2A74FA2200688A26 /* XCTestCase+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6397C2A74FA2200688A26 /* XCTestCase+Ext.swift */; };
 		4FD6397F2A74FB9200688A26 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6397E2A74FB9200688A26 /* HTTPClientSpy.swift */; };
 		4FD639812A75066100688A26 /* NowPlayingItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639802A75066100688A26 /* NowPlayingItemsMapper.swift */; };
+		4FD639822A750C6B00688A26 /* DMNowPlaying.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639592A74F57600688A26 /* DMNowPlaying.framework */; platformFilter = ios; };
+		4FD639832A750C6B00688A26 /* DMNowPlaying.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639592A74F57600688A26 /* DMNowPlaying.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		4FD639622A74F57600688A26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FD638C82A727A7600688A26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FD639582A74F57600688A26;
+			remoteInfo = DMNowPlaying;
+		};
+		4FD639842A750C6B00688A26 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4FD638C82A727A7600688A26 /* Project object */;
 			proxyType = 1;
@@ -44,6 +53,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4FD6391C2A73753300688A26 /* DMCommoniOS.framework in Embed Frameworks */,
+				4FD639832A750C6B00688A26 /* DMNowPlaying.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FD6391B2A73753300688A26 /* DMCommoniOS.framework in Frameworks */,
+				4FD639822A750C6B00688A26 /* DMNowPlaying.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +242,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4FD639852A750C6B00688A26 /* PBXTargetDependency */,
 			);
 			name = DMNowPlayingiOS;
 			productName = DMNowPlayingiOS;
@@ -380,6 +392,12 @@
 			isa = PBXTargetDependency;
 			target = 4FD639582A74F57600688A26 /* DMNowPlaying */;
 			targetProxy = 4FD639622A74F57600688A26 /* PBXContainerItemProxy */;
+		};
+		4FD639852A750C6B00688A26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 4FD639582A74F57600688A26 /* DMNowPlaying */;
+			targetProxy = 4FD639842A750C6B00688A26 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -598,6 +616,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -633,6 +652,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};

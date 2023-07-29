@@ -29,8 +29,25 @@ public final class RemoteNowPlayingLoader: NowPlayingLoader {
     }
     
     public func execute(_ req: PagedNowPlayingRequest, completion: @escaping (Result) -> Void) {
-        let request = URLRequest(url: baseURL)
+        let request = URLRequest(url: enrich(baseURL, with: req))
         
         client.fetch(request) { _ in }
+    }
+}
+
+private extension RemoteNowPlayingLoader {
+    func enrich(_ url: URL, with req: PagedNowPlayingRequest) -> URL {
+        let requestURL = url
+            .appending(path: "3")
+            .appending(path: "movie")
+            .appending(path: "now_playing")
+        
+        var urlComponents = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "language", value: req.language),
+            URLQueryItem(name: "page", value: String(req.page))
+        ]
+        
+        return urlComponents?.url ?? requestURL
     }
 }

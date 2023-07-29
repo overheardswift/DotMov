@@ -31,7 +31,13 @@ public final class RemoteNowPlayingLoader: NowPlayingLoader {
     public func execute(_ req: PagedNowPlayingRequest, completion: @escaping (Result) -> Void) {
         let request = URLRequest(url: enrich(baseURL, with: req))
         
-        client.fetch(request) { _ in }
+        client.fetch(request) { result in
+            switch result {
+            case .failure:
+                completion(.failure(Error.connectivity))
+            default: break
+            }
+        }
     }
 }
 

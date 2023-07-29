@@ -37,6 +37,14 @@ class RemoteNowPlayingLoaderTests: XCTestCase {
         
         XCTAssertEqual(client.requestedURLs, [expectedURL, expectedURL])
     }
+    
+    func test_execute_delivers_error_on_client_error() {
+        let (sut, client) = makeSUT()
+        let error = makeError()
+        expect(sut, toCompleteWith: failure(.connectivity), when: {
+            client.completes(with: error)
+        })
+    }
 }
 
 private extension RemoteNowPlayingLoaderTests {
@@ -48,5 +56,27 @@ private extension RemoteNowPlayingLoaderTests {
       checkForMemoryLeaks(sut, file: file, line: line)
 
       return (sut, client)
+    }
+    
+    func expect(_ sut: NowPlayingLoader, toCompleteWith expectedResult: NowPlayingLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+      let exp = expectation(description: "Wait for load completion")
+      let req = PagedNowPlayingRequest(page: 1)
+      sut.execute(req, completion: { receivedResult in
+        switch (receivedResult, expectedResult) {
+          case let (.success(receivedItems), .success(expectedItems)):
+            XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
+          case let (.failure(receivedError as RemoteNowPlayingLoader.Error), .failure(expectedError as RemoteNowPlayingLoader.Error)):
+            XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+          default:
+            XCTFail("Expected result \(expectedResult) got \(receivedResult) instead", file: file, line: line)
+        }
+        exp.fulfill()
+      })
+      action()
+      wait(for: [exp], timeout: 1.0)
+    }
+    
+    func failure(_ error: RemoteNowPlayingLoader.Error) -> NowPlayingLoader.Result {
+      return .failure(error)
     }
 }

@@ -58,7 +58,18 @@ private extension SceneDelegate {
 	}
 	
 	func makeMovieDetailScene(for id: Int) -> MovieDetailsViewController {
-		return MovieDetailsViewController()
+		let movieClient = URLSessionHTTPClient(session: .init(configuration: .ephemeral))
+		let imageLoaderClient = URLSessionHTTPClient()
+		let movieLoader = RemoteMovieLoader(baseURL: baseURL, client: movieClient)
+		let imageLoader = RemoteImageDataLoader(client: imageLoaderClient)
+		
+		let viewController = MovieDetailsUIComposer.compose(
+			id: id,
+			loader: movieLoader,
+			imageLoader: imageLoader
+		)
+		
+		return viewController
 	}
 }
 

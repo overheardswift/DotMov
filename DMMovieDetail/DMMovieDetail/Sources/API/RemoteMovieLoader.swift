@@ -38,10 +38,18 @@ public final class RemoteMovieLoader: MovieLoader {
 
 private extension RemoteMovieLoader {
   func enrich(_ url: URL, with movieID: Int) -> URL {
-    return url
+		let requestURL = url
       .appendingPathComponent("3")
       .appendingPathComponent("movie")
       .appendingPathComponent("\(movieID)")
+		
+		var urlComponents = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
+		urlComponents?.queryItems = [
+				// TODO: Move API Key
+				URLQueryItem(name: "api_key", value: "7157aee554910d31feca06cc84700142")
+		]
+		
+		return urlComponents?.url ?? requestURL
   }
 
   static func map(_ data: Data, from response: HTTPURLResponse) -> Result {

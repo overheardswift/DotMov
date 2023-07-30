@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4FAC062C2A76CC9B006705DB /* DMCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FAC062B2A76CC9B006705DB /* DMCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4FAC06342A76CE86006705DB /* DMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06292A76CC9B006705DB /* DMCommon.framework */; };
-		4FAC06352A76CE86006705DB /* DMCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06292A76CC9B006705DB /* DMCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4FAC06342A76CE86006705DB /* DMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06292A76CC9B006705DB /* DMCommon.framework */; platformFilter = ios; };
+		4FAC06352A76CE86006705DB /* DMCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06292A76CC9B006705DB /* DMCommon.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FAC063E2A76CEF3006705DB /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC063D2A76CEF3006705DB /* MainQueueDispatchDecorator.swift */; };
 		4FAC06402A76CFA4006705DB /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC063F2A76CFA4006705DB /* WeakRefVirtualProxy.swift */; };
 		4FD639072A736FFC00688A26 /* DMCommoniOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD639062A736FFC00688A26 /* DMCommoniOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -296,6 +296,7 @@
 /* Begin PBXTargetDependency section */
 		4FAC06372A76CE86006705DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 4FAC06282A76CC9B006705DB /* DMCommon */;
 			targetProxy = 4FAC06362A76CE86006705DB /* PBXContainerItemProxy */;
 		};

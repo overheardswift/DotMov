@@ -18,6 +18,16 @@ public final class MovieDetailsViewController: UIViewController {
 	private let scrollViewContainer = ScrollViewContainer()
 	private let headerView = MovieDetailHeaderView()
 	private let overviewLabel = PaddingLabel()
+	private let loadingIndicator = UIActivityIndicatorView(style: .large)
+	
+	private var isLoading: Bool = false {
+		didSet {
+			UIView.transition(with: scrollViewContainer, duration: 0.33, options: .transitionCrossDissolve) {
+				self.isLoading ? self.loadingIndicator.startAnimating() : self.loadingIndicator.stopAnimating()
+				self.scrollViewContainer.isHidden = self.isLoading
+			}
+		}
+	}
 	
 	private var delegate: MovieDetailsViewControllerDelegate?
 	
@@ -35,11 +45,24 @@ public final class MovieDetailsViewController: UIViewController {
 	}
 }
 
+extension MovieDetailsViewController: MovieDetailsView {
+	public func display(_ model: MovieDetailsViewModel<UIImage>) {
+		
+		isLoading = model.isLoading
+		headerView.titleLabel.text = model.title
+		headerView.runtimeLabel.text = model.runtime
+		headerView.genreLabel.text = model.genre
+		headerView.backdropImageView.image = model.image
+		overviewLabel.text = model.overview
+	}
+}
+
 private extension MovieDetailsViewController {
 	func configureUI() {
 		configureScrollViewContainer()
 		configureHeaderView()
 		configureOverviewLabel()
+		configureLoadingIndicator()
 	}
 	
 	func configureScrollViewContainer() {
@@ -74,15 +97,15 @@ private extension MovieDetailsViewController {
 		
 		scrollViewContainer.addArrangedSubViews(overviewLabel)
 	}
-}
-
-extension MovieDetailsViewController: MovieDetailsView {
-	public func display(_ model: MovieDetailsViewModel<UIImage>) {
+	
+	func configureLoadingIndicator() {
+		loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+		loadingIndicator.color = .black
 		
-		headerView.titleLabel.text = model.title
-		headerView.runtimeLabel.text = model.runtime
-		headerView.genreLabel.text = model.genre
-		headerView.backdropImageView.image = model.image
-		overviewLabel.text = model.overview
+		view.addSubview(loadingIndicator)
+		NSLayoutConstraint.activate([
+			loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+		])
 	}
 }

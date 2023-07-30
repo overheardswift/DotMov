@@ -31,6 +31,8 @@
 		4FAC06202A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC061F2A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift */; };
 		4FAC06232A76CBB7006705DB /* MovieDetailsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC06222A76CBB7006705DB /* MovieDetailsUIComposer.swift */; };
 		4FAC06422A76D57E006705DB /* MovieDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC06412A76D57E006705DB /* MovieDetailHeaderView.swift */; };
+		4FFF39C02A7725FA0039033F /* DMMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF39BF2A7725FA0039033F /* DMMedia.framework */; };
+		4FFF39C12A7725FA0039033F /* DMMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF39BF2A7725FA0039033F /* DMMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4FFF39C12A7725FA0039033F /* DMMedia.framework in Embed Frameworks */,
 				4FAC060E2A76BE05006705DB /* DMCommoniOS.framework in Embed Frameworks */,
 				4FAC06082A76BDF3006705DB /* DMMovieDetail.framework in Embed Frameworks */,
 			);
@@ -106,6 +109,7 @@
 		4FAC061F2A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresentationAdapter.swift; sourceTree = "<group>"; };
 		4FAC06222A76CBB7006705DB /* MovieDetailsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsUIComposer.swift; sourceTree = "<group>"; };
 		4FAC06412A76D57E006705DB /* MovieDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailHeaderView.swift; sourceTree = "<group>"; };
+		4FFF39BF2A7725FA0039033F /* DMMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FFF39C02A7725FA0039033F /* DMMedia.framework in Frameworks */,
 				4FAC060D2A76BE05006705DB /* DMCommoniOS.framework in Frameworks */,
 				4FAC06072A76BDF3006705DB /* DMMovieDetail.framework in Frameworks */,
 			);
@@ -188,6 +193,7 @@
 		4FAC05D72A76B974006705DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FFF39BF2A7725FA0039033F /* DMMedia.framework */,
 				4FAC060C2A76BE05006705DB /* DMCommoniOS.framework */,
 				4FAC05D82A76B974006705DB /* DMNetworking.framework */,
 			);
@@ -787,7 +793,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -823,7 +831,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

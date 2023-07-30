@@ -11,6 +11,8 @@
 		4FAC05AB2A7678BE006705DB /* NowPlayingImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05AA2A7678BE006705DB /* NowPlayingImageViewModel.swift */; };
 		4FAC05AD2A768EF5006705DB /* NowPlayingCell+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05AC2A768EF5006705DB /* NowPlayingCell+ext.swift */; };
 		4FAC05AF2A768F70006705DB /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05AE2A768F70006705DB /* UIView+ext.swift */; };
+		4FAC05B32A76A0AA006705DB /* DMMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC05B22A76A0AA006705DB /* DMMedia.framework */; };
+		4FAC05B42A76A0AA006705DB /* DMMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC05B22A76A0AA006705DB /* DMMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FD638D52A727A7600688A26 /* DMNowPlayingiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD638D42A727A7600688A26 /* DMNowPlayingiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4FD638DD2A727C0C00688A26 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD638DC2A727C0C00688A26 /* NowPlayingViewController.swift */; };
 		4FD638DF2A727C4400688A26 /* NowPlayingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD638DE2A727C4400688A26 /* NowPlayingCell.swift */; };
@@ -93,6 +95,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4FAC05B42A76A0AA006705DB /* DMMedia.framework in Embed Frameworks */,
 				4FD6397A2A74F85900688A26 /* DMNetworking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -105,6 +108,7 @@
 		4FAC05AA2A7678BE006705DB /* NowPlayingImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingImageViewModel.swift; sourceTree = "<group>"; };
 		4FAC05AC2A768EF5006705DB /* NowPlayingCell+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NowPlayingCell+ext.swift"; sourceTree = "<group>"; };
 		4FAC05AE2A768F70006705DB /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
+		4FAC05B22A76A0AA006705DB /* DMMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD638D12A727A7600688A26 /* DMNowPlayingiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMNowPlayingiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD638D42A727A7600688A26 /* DMNowPlayingiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMNowPlayingiOS.h; sourceTree = "<group>"; };
 		4FD638DC2A727C0C00688A26 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAC05B32A76A0AA006705DB /* DMMedia.framework in Frameworks */,
 				4FD639792A74F85900688A26 /* DMNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +229,7 @@
 		4FD639192A7374DA00688A26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FAC05B22A76A0AA006705DB /* DMMedia.framework */,
 				4FD639782A74F85900688A26 /* DMNetworking.framework */,
 				4FD6391A2A73753300688A26 /* DMCommoniOS.framework */,
 			);

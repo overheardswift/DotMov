@@ -18,6 +18,7 @@ public final class MovieDetailsViewController: UIViewController {
 	private let scrollViewContainer = ScrollViewContainer()
 	private let headerView = MovieDetailHeaderView()
 	private let overviewLabel = PaddingLabel()
+	private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 	private let loadingIndicator = UIActivityIndicatorView(style: .large)
 	
 	private var isLoading: Bool = false {
@@ -47,7 +48,6 @@ public final class MovieDetailsViewController: UIViewController {
 
 extension MovieDetailsViewController: MovieDetailsView {
 	public func display(_ model: MovieDetailsViewModel<UIImage>) {
-		
 		isLoading = model.isLoading
 		headerView.titleLabel.text = model.title
 		headerView.runtimeLabel.text = model.runtime
@@ -57,12 +57,38 @@ extension MovieDetailsViewController: MovieDetailsView {
 	}
 }
 
+extension MovieDetailsViewController: UICollectionViewDataSource {
+	public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return 5
+	}
+	
+	public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CastCell.id, for: indexPath)
+		return cell
+	}
+}
+
+extension MovieDetailsViewController: UICollectionViewDelegateFlowLayout {
+	public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		return CGSize(width: 80, height: 124)
+	}
+	
+	public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+		return 20
+	}
+	
+	public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+		return .init(top: 0, left: 16, bottom: 0, right: 16)
+	}
+}
+
 private extension MovieDetailsViewController {
 	func configureUI() {
 		configureScrollViewContainer()
 		configureHeaderView()
 		configureOverviewLabel()
 		configureLoadingIndicator()
+		configureCollectionView()
 	}
 	
 	func configureScrollViewContainer() {
@@ -96,6 +122,21 @@ private extension MovieDetailsViewController {
 		overviewLabel.textColor = .boulder
 		
 		scrollViewContainer.addArrangedSubViews(overviewLabel)
+	}
+	
+	func configureCollectionView() {
+		let layout = UICollectionViewFlowLayout()
+		layout.scrollDirection = .horizontal
+		
+		collectionView.showsHorizontalScrollIndicator = false
+		collectionView.collectionViewLayout = layout
+		collectionView.translatesAutoresizingMaskIntoConstraints = false
+		collectionView.dataSource = self
+		collectionView.delegate = self
+		collectionView.register(CastCell.self, forCellWithReuseIdentifier: CastCell.id)
+		
+		scrollViewContainer.addArrangedSubViews(collectionView)
+		collectionView.heightAnchor.constraint(equalToConstant: 150).isActive = true
 	}
 	
 	func configureLoadingIndicator() {

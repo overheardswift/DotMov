@@ -33,6 +33,7 @@
 		4FAC06422A76D57E006705DB /* MovieDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC06412A76D57E006705DB /* MovieDetailHeaderView.swift */; };
 		4FFF39C02A7725FA0039033F /* DMMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF39BF2A7725FA0039033F /* DMMedia.framework */; };
 		4FFF39C12A7725FA0039033F /* DMMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF39BF2A7725FA0039033F /* DMMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4FFF39C32A772CFC0039033F /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39C22A772CFC0039033F /* CastCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		4FAC06222A76CBB7006705DB /* MovieDetailsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsUIComposer.swift; sourceTree = "<group>"; };
 		4FAC06412A76D57E006705DB /* MovieDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailHeaderView.swift; sourceTree = "<group>"; };
 		4FFF39BF2A7725FA0039033F /* DMMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FFF39C22A772CFC0039033F /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 				4FAC06142A76BEC6006705DB /* ScrollViewContainer.swift */,
 				4FAC061C2A76C95B006705DB /* PaddingLabel.swift */,
 				4FAC06412A76D57E006705DB /* MovieDetailHeaderView.swift */,
+				4FFF39C22A772CFC0039033F /* CastCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				4FAC06152A76BEC6006705DB /* ScrollViewContainer.swift in Sources */,
 				4FAC06202A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift in Sources */,
 				4FAC06422A76D57E006705DB /* MovieDetailHeaderView.swift in Sources */,
+				4FFF39C32A772CFC0039033F /* CastCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

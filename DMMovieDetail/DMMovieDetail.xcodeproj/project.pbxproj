@@ -14,6 +14,8 @@
 		4FAC05DA2A76B974006705DB /* DMNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC05D82A76B974006705DB /* DMNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FAC05DF2A76BAC7006705DB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05DE2A76BAC7006705DB /* Movie.swift */; };
 		4FAC05E12A76BB39006705DB /* MovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05E02A76BB39006705DB /* MovieLoader.swift */; };
+		4FAC05E42A76BB79006705DB /* RemoteMovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05E32A76BB79006705DB /* RemoteMovieLoader.swift */; };
+		4FAC05E62A76BBA8006705DB /* MovieMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05E52A76BBA8006705DB /* MovieMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		4FAC05D82A76B974006705DB /* DMNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAC05DE2A76BAC7006705DB /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		4FAC05E02A76BB39006705DB /* MovieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLoader.swift; sourceTree = "<group>"; };
+		4FAC05E32A76BB79006705DB /* RemoteMovieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMovieLoader.swift; sourceTree = "<group>"; };
+		4FAC05E52A76BBA8006705DB /* MovieMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 		4FAC05DC2A76BABA006705DB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4FAC05E22A76BB5A006705DB /* API */,
 				4FAC05DD2A76BAC0006705DB /* Feature */,
 			);
 			path = Sources;
@@ -129,6 +134,15 @@
 				4FAC05E02A76BB39006705DB /* MovieLoader.swift */,
 			);
 			path = Feature;
+			sourceTree = "<group>";
+		};
+		4FAC05E22A76BB5A006705DB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4FAC05E32A76BB79006705DB /* RemoteMovieLoader.swift */,
+				4FAC05E52A76BBA8006705DB /* MovieMapper.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +256,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAC05E42A76BB79006705DB /* RemoteMovieLoader.swift in Sources */,
+				4FAC05E62A76BBA8006705DB /* MovieMapper.swift in Sources */,
 				4FAC05DF2A76BAC7006705DB /* Movie.swift in Sources */,
 				4FAC05E12A76BB39006705DB /* MovieLoader.swift in Sources */,
 			);

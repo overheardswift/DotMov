@@ -17,7 +17,7 @@ class RemoteNowPlayingLoaderTests: XCTestCase {
     
     func test_execute_requests_data_from_remote() {
         let request = PagedNowPlayingRequest(page: 1)
-        let expectedURL = makeURL("https://some-remote-url.dev/3/movie/now_playing?language=\(request.language)&page=\(request.page)")
+        let expectedURL = makeURL("https://some-remote-url.dev/3/movie/now_playing?language=\(request.language)&page=\(request.page)&api_key=7157aee554910d31feca06cc84700142")
         let baseURL = makeURL("https://some-remote-url.dev")
         let (sut, client) = makeSUT(baseURL: baseURL)
         
@@ -28,7 +28,7 @@ class RemoteNowPlayingLoaderTests: XCTestCase {
     
     func test_execute_requests_data_from_remote_on_each_call() {
         let request = PagedNowPlayingRequest(page: 1)
-        let expectedURL = makeURL("https://some-remote-url.dev/3/movie/now_playing?language=\(request.language)&page=\(request.page)")
+        let expectedURL = makeURL("https://some-remote-url.dev/3/movie/now_playing?language=\(request.language)&page=\(request.page)&api_key=7157aee554910d31feca06cc84700142")
         let baseURL = makeURL("https://some-remote-url.dev")
         let (sut, client) = makeSUT(baseURL: baseURL)
         

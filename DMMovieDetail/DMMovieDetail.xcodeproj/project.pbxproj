@@ -27,6 +27,7 @@
 		4FAC060E2A76BE05006705DB /* DMCommoniOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC060C2A76BE05006705DB /* DMCommoniOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FAC06112A76BE68006705DB /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC06102A76BE68006705DB /* MovieDetailsViewController.swift */; };
 		4FAC06152A76BEC6006705DB /* ScrollViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC06142A76BEC6006705DB /* ScrollViewContainer.swift */; };
+		4FAC061D2A76C95B006705DB /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC061C2A76C95B006705DB /* PaddingLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		4FAC060C2A76BE05006705DB /* DMCommoniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMCommoniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAC06102A76BE68006705DB /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		4FAC06142A76BEC6006705DB /* ScrollViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewContainer.swift; sourceTree = "<group>"; };
+		4FAC061C2A76C95B006705DB /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				4FAC06142A76BEC6006705DB /* ScrollViewContainer.swift */,
+				4FAC061C2A76C95B006705DB /* PaddingLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAC061D2A76C95B006705DB /* PaddingLabel.swift in Sources */,
 				4FAC06112A76BE68006705DB /* MovieDetailsViewController.swift in Sources */,
 				4FAC06152A76BEC6006705DB /* ScrollViewContainer.swift in Sources */,
 			);

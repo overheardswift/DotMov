@@ -13,6 +13,12 @@ final class ScrollViewContainer: UIScrollView {
 	
 	var refreshCallback: (() -> Void)?
 	
+	var spacingBetween: CGFloat = 0 {
+		didSet {
+			stackView.spacing = spacingBetween
+		}
+	}
+	
 	private let stackView: UIStackView = {
 		let view = UIStackView()
 		view.axis = .vertical

@@ -43,7 +43,7 @@ private extension MovieDetailsPresentationAdapter {
 			guard let self = self else { return }
 			switch result {
 			case let .success(imageData): self.presenter?.didFinishLoadingImageData(with: imageData, for: model)
-			case let .failure(error): self.presenter?.didFinishLoadingImageData(with: error, for: model)
+			case .failure: break
 			}
 		})
 	}

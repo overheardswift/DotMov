@@ -30,6 +30,7 @@
 		4FAC061D2A76C95B006705DB /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC061C2A76C95B006705DB /* PaddingLabel.swift */; };
 		4FAC06202A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC061F2A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift */; };
 		4FAC06232A76CBB7006705DB /* MovieDetailsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC06222A76CBB7006705DB /* MovieDetailsUIComposer.swift */; };
+		4FAC06422A76D57E006705DB /* MovieDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC06412A76D57E006705DB /* MovieDetailHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		4FAC061C2A76C95B006705DB /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		4FAC061F2A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresentationAdapter.swift; sourceTree = "<group>"; };
 		4FAC06222A76CBB7006705DB /* MovieDetailsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsUIComposer.swift; sourceTree = "<group>"; };
+		4FAC06412A76D57E006705DB /* MovieDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 			children = (
 				4FAC06142A76BEC6006705DB /* ScrollViewContainer.swift */,
 				4FAC061C2A76C95B006705DB /* PaddingLabel.swift */,
+				4FAC06412A76D57E006705DB /* MovieDetailHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				4FAC06112A76BE68006705DB /* MovieDetailsViewController.swift in Sources */,
 				4FAC06152A76BEC6006705DB /* ScrollViewContainer.swift in Sources */,
 				4FAC06202A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift in Sources */,
+				4FAC06422A76D57E006705DB /* MovieDetailHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

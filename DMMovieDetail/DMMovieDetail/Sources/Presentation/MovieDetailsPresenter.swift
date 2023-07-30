@@ -26,23 +26,12 @@ public final class MovieDetailsPresenter<View: MovieDetailsView, Image> where Vi
     view.display(.showLoading)
   }
 
-  public func didFinishLoadingImageData(with error: Error, for movie: Movie) {
-    view.display(MovieDetailsViewModel<Image>(
-      image: nil,
-      title: movie.title,
-      meta: makeMovieMeta(length: movie.length, genres: movie.genres),
-      overview: movie.overview,
-      isLoading: false,
-      error: nil
-      )
-    )
-  }
-
   public func didFinishLoadingImageData(with data: Data, for movie: Movie) {
     view.display(MovieDetailsViewModel<Image>(
       image: imageTransformer(data),
       title: movie.title,
-      meta: makeMovieMeta(length: movie.length, genres: movie.genres),
+			runtime: makeMovieRuntime(length: movie.length),
+			genre: makeMovieGenre(genres: movie.genres),
       overview: movie.overview,
       isLoading: false,
       error: nil
@@ -52,11 +41,15 @@ public final class MovieDetailsPresenter<View: MovieDetailsView, Image> where Vi
 }
 
 private extension MovieDetailsPresenter {
-  func makeMovieMeta(length: CGFloat, genres: [String]) -> String {
-    let runTime = Double(length * 60).asString(style: .short)
-    let genres = genres.map { $0.capitalizingFirstLetter() }.joined(separator: ", ")
-    return "\(runTime) | \(genres)"
+  func makeMovieRuntime(length: CGFloat) -> String {
+		let runTime = Double(length * 60).asString(style: .abbreviated)
+    return runTime
   }
+	
+	func makeMovieGenre(genres: [String]) -> String {
+		let genre = genres.map { $0.capitalizingFirstLetter() }.joined(separator: ", ")
+		return genre
+	}
 }
 
 extension String {

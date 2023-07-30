@@ -16,7 +16,7 @@ protocol MovieDetailsViewControllerDelegate {
 public final class MovieDetailsViewController: UIViewController {
     
 	private let scrollViewContainer = ScrollViewContainer()
-	private let headerView = UIView()
+	private let headerView = MovieDetailHeaderView()
 	private let overviewLabel = PaddingLabel()
 	
 	private var delegate: MovieDetailsViewControllerDelegate?
@@ -78,6 +78,11 @@ private extension MovieDetailsViewController {
 
 extension MovieDetailsViewController: MovieDetailsView {
 	public func display(_ model: MovieDetailsViewModel<UIImage>) {
+		
+		headerView.titleLabel.text = model.title
+		headerView.runtimeLabel.text = model.runtime
+		headerView.genreLabel.text = model.genre
+		headerView.backdropImageView.image = model.image
 		overviewLabel.text = model.overview
 	}
 }

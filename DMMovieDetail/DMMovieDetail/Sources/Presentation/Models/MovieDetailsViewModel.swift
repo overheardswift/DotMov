@@ -11,7 +11,8 @@ public struct MovieDetailsViewModel<Image> {
 
   public let image: Image?
   public let title: String?
-  public let meta: String?
+  public let runtime: String?
+	public let genre: String?
   public let overview: String?
 
   public let isLoading: Bool
@@ -20,14 +21,16 @@ public struct MovieDetailsViewModel<Image> {
   public init(
     image: Image?,
     title: String?,
-    meta: String?,
+    runtime: String?,
+		genre: String?,
     overview: String?,
     isLoading: Bool,
     error: String?
   ) {
     self.image = image
     self.title = title
-    self.meta = meta
+    self.runtime = runtime
+		self.genre = genre
     self.overview = overview
     self.isLoading = isLoading
     self.error = error
@@ -37,7 +40,8 @@ public struct MovieDetailsViewModel<Image> {
       return .init(
         image: nil,
         title: nil,
-        meta: nil,
+        runtime: nil,
+				genre: nil,
         overview: nil,
         isLoading: true,
         error: nil

@@ -16,6 +16,7 @@
 		4FAC05E12A76BB39006705DB /* MovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05E02A76BB39006705DB /* MovieLoader.swift */; };
 		4FAC05E42A76BB79006705DB /* RemoteMovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05E32A76BB79006705DB /* RemoteMovieLoader.swift */; };
 		4FAC05E62A76BBA8006705DB /* MovieMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05E52A76BBA8006705DB /* MovieMapper.swift */; };
+		4FAC05E92A76BC97006705DB /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05E82A76BC97006705DB /* MovieDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		4FAC05E02A76BB39006705DB /* MovieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLoader.swift; sourceTree = "<group>"; };
 		4FAC05E32A76BB79006705DB /* RemoteMovieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMovieLoader.swift; sourceTree = "<group>"; };
 		4FAC05E52A76BBA8006705DB /* MovieMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMapper.swift; sourceTree = "<group>"; };
+		4FAC05E82A76BC97006705DB /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		4FAC05DC2A76BABA006705DB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4FAC05E72A76BC6D006705DB /* Presentation */,
 				4FAC05E22A76BB5A006705DB /* API */,
 				4FAC05DD2A76BAC0006705DB /* Feature */,
 			);
@@ -143,6 +146,14 @@
 				4FAC05E52A76BBA8006705DB /* MovieMapper.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		4FAC05E72A76BC6D006705DB /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4FAC05E82A76BC97006705DB /* MovieDetailsViewModel.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAC05E92A76BC97006705DB /* MovieDetailsViewModel.swift in Sources */,
 				4FAC05E42A76BB79006705DB /* RemoteMovieLoader.swift in Sources */,
 				4FAC05E62A76BBA8006705DB /* MovieMapper.swift in Sources */,
 				4FAC05DF2A76BAC7006705DB /* Movie.swift in Sources */,

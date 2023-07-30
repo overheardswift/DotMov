@@ -38,8 +38,8 @@ public class NowPlayingPresenter {
     
     public func didFinishLoading(with feed: NowPlayingFeed) {
         loadingView.display(.init(isLoading: false))
-        view.display(.init(pageNumber: feed.page, items: feed.items.presentedItems))
         pagingView.display(.init(isLoading: false, isLast: feed.page == feed.totalPages, pageNumber: feed.page))
+        view.display(.init(pageNumber: feed.page, items: feed.items.presentedItems))
     }
     
     public func didFinishLoadingWithError() {

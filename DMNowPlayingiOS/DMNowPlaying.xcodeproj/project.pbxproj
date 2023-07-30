@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FAC05A92A76787D006705DB /* NowPlayingImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05A82A76787D006705DB /* NowPlayingImagePresenter.swift */; };
+		4FAC05AB2A7678BE006705DB /* NowPlayingImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05AA2A7678BE006705DB /* NowPlayingImageViewModel.swift */; };
+		4FAC05AD2A768EF5006705DB /* NowPlayingCell+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05AC2A768EF5006705DB /* NowPlayingCell+ext.swift */; };
+		4FAC05AF2A768F70006705DB /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05AE2A768F70006705DB /* UIView+ext.swift */; };
 		4FD638D52A727A7600688A26 /* DMNowPlayingiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD638D42A727A7600688A26 /* DMNowPlayingiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4FD638DD2A727C0C00688A26 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD638DC2A727C0C00688A26 /* NowPlayingViewController.swift */; };
 		4FD638DF2A727C4400688A26 /* NowPlayingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD638DE2A727C4400688A26 /* NowPlayingCell.swift */; };
@@ -97,6 +101,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4FAC05A82A76787D006705DB /* NowPlayingImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingImagePresenter.swift; sourceTree = "<group>"; };
+		4FAC05AA2A7678BE006705DB /* NowPlayingImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingImageViewModel.swift; sourceTree = "<group>"; };
+		4FAC05AC2A768EF5006705DB /* NowPlayingCell+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NowPlayingCell+ext.swift"; sourceTree = "<group>"; };
+		4FAC05AE2A768F70006705DB /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
 		4FD638D12A727A7600688A26 /* DMNowPlayingiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMNowPlayingiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD638D42A727A7600688A26 /* DMNowPlayingiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMNowPlayingiOS.h; sourceTree = "<group>"; };
 		4FD638DC2A727C0C00688A26 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +283,7 @@
 			children = (
 				4FD6398A2A75F32900688A26 /* Models */,
 				4FD639882A75F1CA00688A26 /* NowPlayingPresenter.swift */,
+				4FAC05A82A76787D006705DB /* NowPlayingImagePresenter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -285,6 +294,7 @@
 				4FD6398B2A75F33500688A26 /* NowPlayingViewModel.swift */,
 				4FD6398D2A75F35E00688A26 /* NowPlayingLoadingViewModel.swift */,
 				4FD6398F2A75F37800688A26 /* NowPlayingPagingViewModel.swift */,
+				4FAC05AA2A7678BE006705DB /* NowPlayingImageViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,6 +343,7 @@
 				4FD639B32A764D7000688A26 /* NowPlayingviewController+ext.swift */,
 				4FD639B52A764D9C00688A26 /* UIControl+ext.swift */,
 				4FD639B72A764DC700688A26 /* UIRefreshControl+ext.swift */,
+				4FAC05AC2A768EF5006705DB /* NowPlayingCell+ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -374,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				4FD638DE2A727C4400688A26 /* NowPlayingCell.swift */,
+				4FAC05AE2A768F70006705DB /* UIView+ext.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -562,6 +574,7 @@
 				4FD639A32A76489700688A26 /* NowPlayingItemPresentationAdapter.swift in Sources */,
 				4FD6399F2A76423100688A26 /* NowPlayingCellController.swift in Sources */,
 				4FD639A12A76433000688A26 /* NowPlayingViewAdapter.swift in Sources */,
+				4FAC05AF2A768F70006705DB /* UIView+ext.swift in Sources */,
 				4FD6399B2A763DB800688A26 /* NowPlayingRefreshController.swift in Sources */,
 				4FD638DD2A727C0C00688A26 /* NowPlayingViewController.swift in Sources */,
 				4FD639952A75F78500688A26 /* NowPlayingUIComposer.swift in Sources */,
@@ -574,8 +587,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAC05AB2A7678BE006705DB /* NowPlayingImageViewModel.swift in Sources */,
 				4FD639702A74F5F900688A26 /* NowPlayingLoader.swift in Sources */,
 				4FD639742A74F73C00688A26 /* NowPlayingItem.swift in Sources */,
+				4FAC05A92A76787D006705DB /* NowPlayingImagePresenter.swift in Sources */,
 				4FD639902A75F37800688A26 /* NowPlayingPagingViewModel.swift in Sources */,
 				4FD6398E2A75F35E00688A26 /* NowPlayingLoadingViewModel.swift in Sources */,
 				4FD639892A75F1CA00688A26 /* NowPlayingPresenter.swift in Sources */,
@@ -604,6 +619,7 @@
 				4FD639B42A764D7000688A26 /* NowPlayingviewController+ext.swift in Sources */,
 				4FD639B62A764D9C00688A26 /* UIControl+ext.swift in Sources */,
 				4FD639B92A764E0E00688A26 /* XCTestCase+Ext.swift in Sources */,
+				4FAC05AD2A768EF5006705DB /* NowPlayingCell+ext.swift in Sources */,
 				4FD639AB2A764CDC00688A26 /* NowPlayingViewControllerTests.swift in Sources */,
 				4FD639B82A764DC700688A26 /* UIRefreshControl+ext.swift in Sources */,
 			);

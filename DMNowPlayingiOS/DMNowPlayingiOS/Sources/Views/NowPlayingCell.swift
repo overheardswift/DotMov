@@ -42,6 +42,8 @@ private extension NowPlayingCell {
         thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
         thumbnailImageView.backgroundColor = .cloud
         thumbnailImageView.layer.cornerRadius = 4
+        thumbnailImageView.clipsToBounds = true
+        thumbnailImageView.contentMode = .scaleToFill
         
         contentView.addSubview(thumbnailImageView)
         NSLayoutConstraint.activate([
@@ -80,7 +82,7 @@ private extension NowPlayingCell {
     func configureTitleLabel() {
         titleLabel.font = .poppins(.regular, size: 16)
         titleLabel.textColor = .black
-        titleLabel.text = "Movie Title"
+        titleLabel.numberOfLines = 2
         
         rightContentStackView.addArrangedSubview(titleLabel)
     }
@@ -88,7 +90,6 @@ private extension NowPlayingCell {
     func configureYearLabel() {
         yearLabel.font = .poppins(.regular, size: 16)
         yearLabel.textColor = .boulder
-        yearLabel.text = "2023"
         
         rightContentStackView.addArrangedSubview(yearLabel)
     }
@@ -97,7 +98,7 @@ private extension NowPlayingCell {
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryLabel.font = .poppins(.regular, size: 12)
         categoryLabel.textColor = .boulder
-        categoryLabel.text = "Drama, Asia, Comedy, Series"
+        categoryLabel.text = "LOREM, IPSUM, DOLOR"
         
         contentView.addSubview(categoryLabel)
         NSLayoutConstraint.activate([

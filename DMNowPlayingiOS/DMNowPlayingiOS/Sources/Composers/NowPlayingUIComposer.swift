@@ -7,11 +7,13 @@
 
 import Foundation
 import DMNowPlaying
+import DMMedia
 
 public enum NowPlayingUIComposer {
     
     public static func compose(
-        loader: NowPlayingLoader
+        loader: NowPlayingLoader,
+        imageLoader: ImageDataLoader
     ) -> NowPlayingViewController {
         
         let adapter = NowPlayingPresentationAdapter(loader: MainQueueDispatchDecoratee(loader))
@@ -23,7 +25,10 @@ public enum NowPlayingUIComposer {
         )
         
         adapter.presenter = NowPlayingPresenter(
-            view: NowPlayingViewAdapter(controller: viewController),
+            view: NowPlayingViewAdapter(
+                controller: viewController,
+                imageLoader: MainQueueDispatchDecoratee(imageLoader)
+            ),
             loadingView: WeakRefVirtualProxy(refreshController),
             pagingView: WeakRefVirtualProxy(pagingController)
         )
@@ -32,7 +37,7 @@ public enum NowPlayingUIComposer {
     }
 }
 
-private final class MainQueueDispatchDecoratee<T> {
+final class MainQueueDispatchDecoratee<T> {
     private(set) var decoratee: T
     
     init(_ decoratee: T) {
@@ -56,7 +61,15 @@ extension MainQueueDispatchDecoratee: NowPlayingLoader where T == NowPlayingLoad
     }
 }
 
-private class WeakRefVirtualProxy<T: AnyObject> {
+extension MainQueueDispatchDecoratee: ImageDataLoader where T == ImageDataLoader {
+    func load(from imageURL: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
+        decoratee.load(from: imageURL, completion: { [weak self] result in
+            self?.dispatch { completion(result) }
+        })
+    }
+}
+
+class WeakRefVirtualProxy<T: AnyObject> {
     private(set) weak var object: T?
     
     init(_ object: T) {

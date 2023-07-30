@@ -51,6 +51,14 @@ public final class NowPlayingViewController: UICollectionViewController {
         refreshController?.refresh()
     }
     
+    public override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+      prefetchCellController(forItemAt: indexPath)
+    }
+
+    public override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+      removeCellController(forItemAt: indexPath)
+    }
+    
     public override func scrollViewDidScroll(_ scrollView: UIScrollView) {
       guard scrollView.isDragging else { return }
       
@@ -62,6 +70,16 @@ public final class NowPlayingViewController: UICollectionViewController {
     }
 }
 
+extension NowPlayingViewController: UICollectionViewDataSourcePrefetching {
+  public func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+    indexPaths.forEach(prefetchCellController)
+  }
+
+  public func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+    indexPaths.forEach(removeCellController)
+  }
+}
+
 private extension NowPlayingViewController {
     func configureUI() {
         configureCollectionView()
@@ -70,9 +88,23 @@ private extension NowPlayingViewController {
     func configureCollectionView() {
         collectionView.collectionViewLayout = createLayout()
         collectionView.dataSource = dataSource
+        collectionView.prefetchDataSource = self
         collectionView.register(NowPlayingCell.self, forCellWithReuseIdentifier: NowPlayingCell.id)
         collectionView.delegate = self
         collectionView.refreshControl = refreshController?.view
+    }
+    
+    func cellController(forItemAt indexPath: IndexPath) -> NowPlayingCellController? {
+      let controller = dataSource.itemIdentifier(for: indexPath)
+      return controller
+    }
+
+    func removeCellController(forItemAt indexPath: IndexPath) {
+      cellController(forItemAt: indexPath)?.cancelLoad()
+    }
+
+    func prefetchCellController(forItemAt indexPath: IndexPath) {
+      cellController(forItemAt: indexPath)?.prefetch()
     }
     
     func createLayout() -> UICollectionViewCompositionalLayout {

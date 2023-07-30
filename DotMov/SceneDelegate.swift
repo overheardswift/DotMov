@@ -10,6 +10,7 @@ import DMNetworking
 import DMNowPlaying
 import DMNowPlayingiOS
 import DMCommoniOS
+import DMMedia
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -23,11 +24,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let client = URLSessionHTTPClient(session: .init(configuration: .ephemeral))
-        let loader = RemoteNowPlayingLoader(baseURL: baseURL, client: client)
+        let nowPlayingClient = URLSessionHTTPClient(session: .init(configuration: .ephemeral))
+        let imageLoaderClient = URLSessionHTTPClient()
+        let nowPlayingLoader = RemoteNowPlayingLoader(baseURL: baseURL, client: nowPlayingClient)
+        let imageLoader = RemoteImageDataLoader(client: imageLoaderClient)
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = NowPlayingUIComposer.compose(loader: loader)
+        let rootViewController = NowPlayingUIComposer.compose(
+            loader: nowPlayingLoader,
+            imageLoader: imageLoader
+        )
+        window.rootViewController = UINavigationController(rootViewController: rootViewController)
         self.window = window
         window.makeKeyAndVisible()
     }

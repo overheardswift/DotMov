@@ -8,12 +8,19 @@
 import UIKit
 import DMNowPlaying
 
+protocol NowPlayingCellControllerDelegate {
+    func didRequestCancelLoadImage()
+    func didRequestLoadImage()
+}
+
 final class NowPlayingCellController: Hashable {
     
     private let model: NowPlayingItem
+    private let delegate: NowPlayingCellControllerDelegate
     
-    init(model: NowPlayingItem) {
+    init(model: NowPlayingItem, delegate: NowPlayingCellControllerDelegate) {
         self.model = model
+        self.delegate = delegate
     }
     
     static func == (lhs: NowPlayingCellController, rhs: NowPlayingCellController) -> Bool {
@@ -31,5 +38,27 @@ final class NowPlayingCellController: Hashable {
         cell?.titleLabel.text = model.title
         cell?.yearLabel.text = model.releaseDate
         return cell!
+    }
+    
+    func cancelLoad() {
+        delegate.didRequestCancelLoadImage()
+        releaseCellForReuse()
+    }
+    
+    func prefetch() {
+        delegate.didRequestLoadImage()
+    }
+}
+
+private extension NowPlayingCellController {
+    func releaseCellForReuse() {
+        cell = nil
+    }
+}
+
+extension NowPlayingCellController: NowPlayingImageView {
+    func display(_ model: NowPlayingImageViewModel<UIImage>) {
+        cell?.contentView.isShimmering = model.isLoading
+        cell?.thumbnailImageView.image = model.image
     }
 }

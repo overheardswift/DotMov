@@ -8,6 +8,7 @@
 import XCTest
 import DMNowPlaying
 import DMNowPlayingiOS
+import DMMedia
 
 class NowPlayingViewControllerTests: XCTestCase {
     
@@ -55,6 +56,122 @@ class NowPlayingViewControllerTests: XCTestCase {
         assertThat(sut, isRendering: items)
     }
     
+    func test_now_playing_card_loads_image_url_when_visible() {
+        let (sut, loader) = makeSUT()
+        let itemZero = makeNowPlayingItem(id: 0)
+        let itemOne = makeNowPlayingItem(id: 1)
+        let feedPage = makeNowPlayingFeed(items: [itemZero, itemOne], pageNumber: 1, totalPages: 1)
+        
+        let expectedURLZero = makeURL("https://image.tmdb.org/t/p/w500/\(itemZero.imagePath)")
+        let expectedURLOne = makeURL("https://image.tmdb.org/t/p/w500/\(itemOne.imagePath)")
+        
+        sut.loadViewIfNeeded()
+        loader.loadFeedCompletes(with: .success(feedPage))
+        XCTAssertTrue(loader.loadedImageURLs.isEmpty)
+        
+        sut.simulateItemVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [expectedURLZero])
+        
+        sut.simulateItemVisible(at: 1)
+        XCTAssertEqual(loader.loadedImageURLs, [expectedURLZero, expectedURLOne])
+    }
+    
+    func test_now_playing_card_cancels_image_load_when_no_longer_visible() {
+        let (sut, loader) = makeSUT()
+        let itemZero = makeNowPlayingItem(id: 0)
+        let itemOne = makeNowPlayingItem(id: 1)
+        let feedPage = makeNowPlayingFeed(items: [itemZero, itemOne], pageNumber: 1, totalPages: 1)
+        
+        let expectedURLZero = makeURL("https://image.tmdb.org/t/p/w500/\(itemZero.imagePath)")
+        let expectedURLOne = makeURL("https://image.tmdb.org/t/p/w500/\(itemOne.imagePath)")
+        
+        sut.loadViewIfNeeded()
+        loader.loadFeedCompletes(with: .success(feedPage))
+        XCTAssertTrue(loader.loadedImageURLs.isEmpty)
+        
+        sut.simulateItemNotVisible(at: 0)
+        XCTAssertEqual(loader.cancelledImageURLs, [expectedURLZero])
+        
+        sut.simulateItemNotVisible(at: 1)
+        XCTAssertEqual(loader.cancelledImageURLs, [expectedURLZero, expectedURLOne])
+    }
+    
+    func test_now_playing_card_shows_loading_indicator_when_image_is_loading() {
+        let (sut, loader) = makeSUT()
+        let itemZero = makeNowPlayingItem(id: 0)
+        let itemOne = makeNowPlayingItem(id: 1)
+        let feedPage = makeNowPlayingFeed(items: [itemZero, itemOne], pageNumber: 1, totalPages: 1)
+        
+        sut.loadViewIfNeeded()
+        loader.loadFeedCompletes(with: .success(feedPage))
+        
+        let viewOne = sut.simulateItemVisible(at: 0) as? NowPlayingCell
+        XCTAssertEqual(viewOne?.contentView.loadingIndicatorIsVisible, true)
+        
+        loader.completeImageLoading(with: makeData(), at: 0)
+        XCTAssertEqual(viewOne?.contentView.loadingIndicatorIsVisible, false)
+        
+        let viewTwo = sut.simulateItemVisible(at: 1) as? NowPlayingCell
+        XCTAssertEqual(viewTwo?.contentView.loadingIndicatorIsVisible, true)
+        
+        loader.completeImageLoading(with: makeData(), at: 1)
+        XCTAssertEqual(viewTwo?.contentView.loadingIndicatorIsVisible, false)
+    }
+    
+    func test_now_playing_card_preloads_image_when_near_visible() {
+        let (sut, loader) = makeSUT()
+        let itemZero = makeNowPlayingItem(id: 0)
+        let itemOne = makeNowPlayingItem(id: 1)
+        let feedPage = makeNowPlayingFeed(items: [itemZero, itemOne], pageNumber: 1, totalPages: 1)
+        
+        let expectedURLZero = makeURL("https://image.tmdb.org/t/p/w500/\(itemZero.imagePath)")
+        let expectedURLOne = makeURL("https://image.tmdb.org/t/p/w500/\(itemOne.imagePath)")
+        
+        sut.loadViewIfNeeded()
+        loader.loadFeedCompletes(with: .success(feedPage))
+        XCTAssertTrue(loader.loadedImageURLs.isEmpty)
+        
+        sut.simulateItemNearVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [expectedURLZero])
+        
+        sut.simulateItemNearVisible(at: 1)
+        XCTAssertEqual(loader.loadedImageURLs, [expectedURLZero, expectedURLOne])
+    }
+    
+    func test_now_playing_card_cancels_preload_when_no_longer_near_visible() {
+        let (sut, loader) = makeSUT()
+        let itemZero = makeNowPlayingItem(id: 0)
+        let itemOne = makeNowPlayingItem(id: 1)
+        let feedPage = makeNowPlayingFeed(items: [itemZero, itemOne], pageNumber: 1, totalPages: 1)
+        
+        let expectedURLZero = makeURL("https://image.tmdb.org/t/p/w500/\(itemZero.imagePath)")
+        let expectedURLOne = makeURL("https://image.tmdb.org/t/p/w500/\(itemOne.imagePath)")
+        
+        sut.loadViewIfNeeded()
+        loader.loadFeedCompletes(with: .success(feedPage))
+        XCTAssertTrue(loader.loadedImageURLs.isEmpty)
+        
+        sut.simulateItemNoLongerNearVisible(at: 0)
+        XCTAssertEqual(loader.cancelledImageURLs, [expectedURLZero])
+        
+        sut.simulateItemNoLongerNearVisible(at: 1)
+        XCTAssertEqual(loader.cancelledImageURLs, [expectedURLZero, expectedURLOne])
+    }
+    
+    func test_now_playing_card_does_not_render_image_when_no_longer_visible() {
+        let (sut, loader) = makeSUT()
+        let item = makeNowPlayingItem(id: 0)
+        let feedPage = makeNowPlayingFeed(items: [item], pageNumber: 1, totalPages: 1)
+        
+        sut.loadViewIfNeeded()
+        loader.loadFeedCompletes(with: .success(feedPage))
+        
+        let view = sut.simulateItemNotVisible(at: 0) as? NowPlayingCell
+        loader.completeImageLoading(with: makeImageData(), at: 0)
+        XCTAssertNil(view?.renderedImage)
+    }
+    
+    
     // MARK: Main Thread
     
     func test_now_playing_loader_completes_from_background_to_main_thread() {
@@ -70,6 +187,25 @@ class NowPlayingViewControllerTests: XCTestCase {
         }
         wait(for: [exp], timeout: 1.0)
     }
+    
+    func test_now_playing_image_loader_completes_from_background_to_main_thread() {
+        let (sut, loader) = makeSUT()
+        let item = makeNowPlayingItem(id: 0)
+        let feedPage = makeNowPlayingFeed(items: [item], pageNumber: 1, totalPages: 1)
+        let imageData = makeImageData()
+        sut.loadViewIfNeeded()
+        loader.loadFeedCompletes(with: .success(feedPage))
+        
+        sut.simulateItemVisible(at: 0)
+        
+        let exp = expectation(description: "await background queue")
+        DispatchQueue.global().async {
+            loader.completeImageLoading(with: imageData, at: 0)
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     
     // MARK: Pagination
     
@@ -164,7 +300,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 private extension NowPlayingViewControllerTests {
     func makeSUT(onSelectSpy: @escaping (Int) -> Void = { _ in }, file: StaticString = #file, line: UInt = #line) -> (NowPlayingViewController, LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = NowPlayingUIComposer.compose(loader: loader)
+        let sut = NowPlayingUIComposer.compose(loader: loader, imageLoader: loader)
         
         checkForMemoryLeaks(loader, file: file, line: line)
         checkForMemoryLeaks(sut, file: file, line: line)
@@ -196,7 +332,7 @@ private extension NowPlayingViewControllerTests {
         }
     }
     
-    class LoaderSpy: NowPlayingLoader {
+    class LoaderSpy: NowPlayingLoader, ImageDataLoader {
         
         enum Message: Equatable {
             case load(PagedNowPlayingRequest)
@@ -213,5 +349,55 @@ private extension NowPlayingViewControllerTests {
         func loadFeedCompletes(with result: NowPlayingLoader.Result, at index: Int = 0) {
             loadCompletions[index](result)
         }
+        
+        private struct TaskSpy: ImageDataLoaderTask {
+            let cancelCallback: () -> Void
+            func cancel() {
+                cancelCallback()
+            }
+        }
+        
+        private var imageRequests = [(url: URL, completion: (ImageDataLoader.Result) -> Void)]()
+        
+        var loadedImageURLs: [URL] {
+            return imageRequests.map { $0.url }
+        }
+        
+        private(set) var cancelledImageURLs = [URL]()
+        
+        func load(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
+            imageRequests.append((url, completion))
+            return TaskSpy { [weak self] in self?.cancelledImageURLs.append(url) }
+        }
+        
+        func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {
+            imageRequests[index].completion(.success(imageData))
+        }
+        
+        func completeImageLoadingWithError(at index: Int = 0) {
+            let error = NSError(domain: "an error", code: 0)
+            imageRequests[index].completion(.failure(error))
+        }
+    }
+    
+    func makeImageData(withColor color: UIColor = .systemTeal) -> Data {
+        return makeImage(withColor: color).pngData()!
+    }
+    
+    func makeImage(withColor color: UIColor = .systemTeal) -> UIImage {
+        return UIImage.make(withColor: color)
+    }
+}
+
+private extension UIImage {
+    static func make(withColor color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img!
     }
 }

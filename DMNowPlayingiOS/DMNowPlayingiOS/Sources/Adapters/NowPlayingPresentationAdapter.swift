@@ -28,6 +28,7 @@ extension NowPlayingPresentationAdapter: NowPlayingRefreshControllerDelegate {
 
 extension NowPlayingPresentationAdapter: NowPlayingPagingControllerDelegate {
     func didRequestPage(page: Int) {
+        presenter?.didStartLoading()
         load(page: page)
     }
 }

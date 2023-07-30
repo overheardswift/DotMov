@@ -5,6 +5,9 @@
       location = "container:DotMov.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:DMMovieDetail/DMMovieDetail.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:DMMedia/DMMedia.xcodeproj">
    </FileRef>
    <FileRef

@@ -8,6 +8,7 @@
 import UIKit
 import DMNowPlaying
 import DMMedia
+import DMCommon
 
 final class NowPlayingViewAdapter {
 	
@@ -62,7 +63,7 @@ private extension NowPlayingViewAdapter {
 }
 
 extension WeakRefVirtualProxy: NowPlayingImageView where T: NowPlayingImageView, T.Image == UIImage {
-	func display(_ model: NowPlayingImageViewModel<UIImage>) {
+	public func display(_ model: NowPlayingImageViewModel<UIImage>) {
 		object?.display(model)
 	}
 }

@@ -56,23 +56,14 @@ extension MainQueueDispatchDecorator: ImageDataLoader where T == ImageDataLoader
 	}
 }
 
-class WeakRefVirtualProxy<T: AnyObject> {
-	private(set) weak var object: T?
-	
-	init(_ object: T) {
-		self.object = object
-	}
-}
-
-
 extension WeakRefVirtualProxy: NowPlayingLoadingView where T: NowPlayingLoadingView {
-	func display(_ viewModel: NowPlayingLoadingViewModel) {
+	public func display(_ viewModel: NowPlayingLoadingViewModel) {
 		object?.display(viewModel)
 	}
 }
 
 extension WeakRefVirtualProxy: NowPlayingPagingView where T: NowPlayingPagingView {
-	func display(_ viewModel: NowPlayingPagingViewModel) {
+	public func display(_ viewModel: NowPlayingPagingViewModel) {
 		object?.display(viewModel)
 	}
 }

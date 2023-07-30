@@ -11,6 +11,7 @@
 		4FAC06342A76CE86006705DB /* DMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06292A76CC9B006705DB /* DMCommon.framework */; };
 		4FAC06352A76CE86006705DB /* DMCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06292A76CC9B006705DB /* DMCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FAC063E2A76CEF3006705DB /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC063D2A76CEF3006705DB /* MainQueueDispatchDecorator.swift */; };
+		4FAC06402A76CFA4006705DB /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC063F2A76CFA4006705DB /* WeakRefVirtualProxy.swift */; };
 		4FD639072A736FFC00688A26 /* DMCommoniOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD639062A736FFC00688A26 /* DMCommoniOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4FD639152A7371C300688A26 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639142A7371C300688A26 /* UIFont+Ext.swift */; };
 		4FD6391F2A7377E500688A26 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FD6391E2A7377E200688A26 /* Poppins-Regular.ttf */; };
@@ -46,6 +47,7 @@
 		4FAC06292A76CC9B006705DB /* DMCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAC062B2A76CC9B006705DB /* DMCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMCommon.h; sourceTree = "<group>"; };
 		4FAC063D2A76CEF3006705DB /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
+		4FAC063F2A76CFA4006705DB /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		4FD639032A736FFC00688A26 /* DMCommoniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMCommoniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD639062A736FFC00688A26 /* DMCommoniOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMCommoniOS.h; sourceTree = "<group>"; };
 		4FD639142A7371C300688A26 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				4FAC063D2A76CEF3006705DB /* MainQueueDispatchDecorator.swift */,
+				4FAC063F2A76CFA4006705DB /* WeakRefVirtualProxy.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAC06402A76CFA4006705DB /* WeakRefVirtualProxy.swift in Sources */,
 				4FAC063E2A76CEF3006705DB /* MainQueueDispatchDecorator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

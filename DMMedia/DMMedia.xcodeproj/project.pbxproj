@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4FD639D82A76733400688A26 /* DMMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639CF2A76733400688A26 /* DMMedia.framework */; };
-		4FD639DD2A76733400688A26 /* DMMediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639DC2A76733400688A26 /* DMMediaTests.swift */; };
+		4FD639DD2A76733400688A26 /* RemoteImageDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639DC2A76733400688A26 /* RemoteImageDataLoaderTests.swift */; };
 		4FD639DE2A76733400688A26 /* DMMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FD639D22A76733400688A26 /* DMMedia.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4FD639EC2A76739C00688A26 /* ImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639EB2A76739C00688A26 /* ImageDataLoader.swift */; };
+		4FD639EF2A7673B900688A26 /* RemoteImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639EE2A7673B900688A26 /* RemoteImageDataLoader.swift */; };
+		4FD639F32A7673DA00688A26 /* DMNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639F22A7673DA00688A26 /* DMNetworking.framework */; };
+		4FD639F42A7673DA00688A26 /* DMNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639F22A7673DA00688A26 /* DMNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4FD639F82A76743400688A26 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639F72A76743400688A26 /* HTTPClientSpy.swift */; };
+		4FD639FA2A76747F00688A26 /* XCTestCase+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD639F92A76747F00688A26 /* XCTestCase+ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,11 +28,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4FD639F52A7673DB00688A26 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4FD639F42A7673DA00688A26 /* DMNetworking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4FD639CF2A76733400688A26 /* DMMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD639D22A76733400688A26 /* DMMedia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMMedia.h; sourceTree = "<group>"; };
 		4FD639D72A76733400688A26 /* DMMediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DMMediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FD639DC2A76733400688A26 /* DMMediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMMediaTests.swift; sourceTree = "<group>"; };
+		4FD639DC2A76733400688A26 /* RemoteImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageDataLoaderTests.swift; sourceTree = "<group>"; };
+		4FD639EB2A76739C00688A26 /* ImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataLoader.swift; sourceTree = "<group>"; };
+		4FD639EE2A7673B900688A26 /* RemoteImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageDataLoader.swift; sourceTree = "<group>"; };
+		4FD639F22A7673DA00688A26 /* DMNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD639F72A76743400688A26 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		4FD639F92A76747F00688A26 /* XCTestCase+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD639F32A7673DA00688A26 /* DMNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +80,7 @@
 				4FD639D12A76733400688A26 /* DMMedia */,
 				4FD639DB2A76733400688A26 /* DMMediaTests */,
 				4FD639D02A76733400688A26 /* Products */,
+				4FD639F12A7673DA00688A26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +96,7 @@
 		4FD639D12A76733400688A26 /* DMMedia */ = {
 			isa = PBXGroup;
 			children = (
+				4FD639EA2A76739200688A26 /* Sources */,
 				4FD639D22A76733400688A26 /* DMMedia.h */,
 			);
 			path = DMMedia;
@@ -77,9 +105,52 @@
 		4FD639DB2A76733400688A26 /* DMMediaTests */ = {
 			isa = PBXGroup;
 			children = (
-				4FD639DC2A76733400688A26 /* DMMediaTests.swift */,
+				4FD639F62A76742100688A26 /* Utils */,
+				4FD639DC2A76733400688A26 /* RemoteImageDataLoaderTests.swift */,
 			);
 			path = DMMediaTests;
+			sourceTree = "<group>";
+		};
+		4FD639EA2A76739200688A26 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4FD639ED2A76739F00688A26 /* Feature */,
+				4FD639F02A7673BF00688A26 /* API */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		4FD639ED2A76739F00688A26 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				4FD639EB2A76739C00688A26 /* ImageDataLoader.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		4FD639F02A7673BF00688A26 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4FD639EE2A7673B900688A26 /* RemoteImageDataLoader.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4FD639F12A7673DA00688A26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FD639F22A7673DA00688A26 /* DMNetworking.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FD639F62A76742100688A26 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4FD639F72A76743400688A26 /* HTTPClientSpy.swift */,
+				4FD639F92A76747F00688A26 /* XCTestCase+ext.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +175,7 @@
 				4FD639CB2A76733400688A26 /* Sources */,
 				4FD639CC2A76733400688A26 /* Frameworks */,
 				4FD639CD2A76733400688A26 /* Resources */,
+				4FD639F52A7673DB00688A26 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,6 +216,7 @@
 				TargetAttributes = {
 					4FD639CE2A76733400688A26 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					4FD639D62A76733400688A26 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -191,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD639EF2A7673B900688A26 /* RemoteImageDataLoader.swift in Sources */,
+				4FD639EC2A76739C00688A26 /* ImageDataLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +273,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FD639DD2A76733400688A26 /* DMMediaTests.swift in Sources */,
+				4FD639DD2A76733400688A26 /* RemoteImageDataLoaderTests.swift in Sources */,
+				4FD639FA2A76747F00688A26 /* XCTestCase+ext.swift in Sources */,
+				4FD639F82A76743400688A26 /* HTTPClientSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +412,7 @@
 		4FD639E22A76733400688A26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -359,6 +437,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -366,6 +445,7 @@
 		4FD639E32A76733400688A26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -397,6 +477,7 @@
 		4FD639E52A76733400688A26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 846K69FUHV;
@@ -412,6 +493,7 @@
 		4FD639E62A76733400688A26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 846K69FUHV;

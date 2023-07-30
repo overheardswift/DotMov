@@ -19,6 +19,8 @@
 		4FD639C12A765FEE00688A26 /* DMNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639BF2A765FEE00688A26 /* DMNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FD639C32A76603B00688A26 /* DMNowPlaying.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639C22A76603B00688A26 /* DMNowPlaying.framework */; };
 		4FD639C42A76603B00688A26 /* DMNowPlaying.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639C22A76603B00688A26 /* DMNowPlaying.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4FD639E82A76736800688A26 /* DMMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639E72A76736800688A26 /* DMMedia.framework */; };
+		4FD639E92A76736800688A26 /* DMMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639E72A76736800688A26 /* DMMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,7 @@
 				4FD639182A73746A00688A26 /* DMCommoniOS.framework in Embed Frameworks */,
 				4FD639C12A765FEE00688A26 /* DMNetworking.framework in Embed Frameworks */,
 				4FD638E32A727C9F00688A26 /* DMNowPlayingiOS.framework in Embed Frameworks */,
+				4FD639E92A76736800688A26 /* DMMedia.framework in Embed Frameworks */,
 				4FD639C42A76603B00688A26 /* DMNowPlaying.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -49,6 +52,7 @@
 		4FD639162A73746A00688A26 /* DMCommoniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMCommoniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD639BF2A765FEE00688A26 /* DMNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD639C22A76603B00688A26 /* DMNowPlaying.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMNowPlaying.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD639E72A76736800688A26 /* DMMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 				4FD639172A73746A00688A26 /* DMCommoniOS.framework in Frameworks */,
 				4FD639C02A765FEE00688A26 /* DMNetworking.framework in Frameworks */,
 				4FD638E22A727C9F00688A26 /* DMNowPlayingiOS.framework in Frameworks */,
+				4FD639E82A76736800688A26 /* DMMedia.framework in Frameworks */,
 				4FD639C32A76603B00688A26 /* DMNowPlaying.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +103,7 @@
 		4FD638E02A727C9F00688A26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FD639E72A76736800688A26 /* DMMedia.framework */,
 				4FD639C22A76603B00688A26 /* DMNowPlaying.framework */,
 				4FD639BF2A765FEE00688A26 /* DMNetworking.framework */,
 				4FD639162A73746A00688A26 /* DMCommoniOS.framework */,

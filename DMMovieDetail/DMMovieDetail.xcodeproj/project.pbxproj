@@ -17,6 +17,7 @@
 		4FAC05E42A76BB79006705DB /* RemoteMovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05E32A76BB79006705DB /* RemoteMovieLoader.swift */; };
 		4FAC05E62A76BBA8006705DB /* MovieMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05E52A76BBA8006705DB /* MovieMapper.swift */; };
 		4FAC05E92A76BC97006705DB /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05E82A76BC97006705DB /* MovieDetailsViewModel.swift */; };
+		4FAC05EC2A76BD45006705DB /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC05EB2A76BD45006705DB /* MovieDetailsPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		4FAC05E32A76BB79006705DB /* RemoteMovieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMovieLoader.swift; sourceTree = "<group>"; };
 		4FAC05E52A76BBA8006705DB /* MovieMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMapper.swift; sourceTree = "<group>"; };
 		4FAC05E82A76BC97006705DB /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
+		4FAC05EB2A76BD45006705DB /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,9 +153,18 @@
 		4FAC05E72A76BC6D006705DB /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				4FAC05E82A76BC97006705DB /* MovieDetailsViewModel.swift */,
+				4FAC05EA2A76BD2C006705DB /* Models */,
+				4FAC05EB2A76BD45006705DB /* MovieDetailsPresenter.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		4FAC05EA2A76BD2C006705DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4FAC05E82A76BC97006705DB /* MovieDetailsViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +281,7 @@
 				4FAC05E92A76BC97006705DB /* MovieDetailsViewModel.swift in Sources */,
 				4FAC05E42A76BB79006705DB /* RemoteMovieLoader.swift in Sources */,
 				4FAC05E62A76BBA8006705DB /* MovieMapper.swift in Sources */,
+				4FAC05EC2A76BD45006705DB /* MovieDetailsPresenter.swift in Sources */,
 				4FAC05DF2A76BAC7006705DB /* Movie.swift in Sources */,
 				4FAC05E12A76BB39006705DB /* MovieLoader.swift in Sources */,
 			);

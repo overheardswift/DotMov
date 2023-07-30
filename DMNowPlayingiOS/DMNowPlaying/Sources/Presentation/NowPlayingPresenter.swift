@@ -38,11 +38,40 @@ public class NowPlayingPresenter {
     
     public func didFinishLoading(with feed: NowPlayingFeed) {
         loadingView.display(.init(isLoading: false))
-        view.display(.init(pageNumber: feed.page, items: feed.items))
+        view.display(.init(pageNumber: feed.page, items: feed.items.presentedItems))
         pagingView.display(.init(isLoading: false, isLast: feed.page == feed.totalPages, pageNumber: feed.page))
     }
     
     public func didFinishLoadingWithError() {
         loadingView.display(.init(isLoading: false))
+    }
+}
+
+private extension String {
+    var presentedDateString: String {
+        let stringToDateFormatter = DateFormatter()
+        stringToDateFormatter.dateFormat = "yyyy-mm-dd"
+        
+        guard let date = stringToDateFormatter.date(from: self) else {
+            return self
+        }
+        
+        let dateToStringFormatter = DateFormatter()
+        dateToStringFormatter.dateFormat = "yyyy"
+        return dateToStringFormatter.string(from: date)
+    }
+}
+
+private extension Array where Element == NowPlayingItem {
+    var presentedItems: [NowPlayingItem] {
+        return map {
+            NowPlayingItem(
+                id: $0.id,
+                title: $0.title,
+                imagePath: $0.imagePath,
+                releaseDate: $0.releaseDate.presentedDateString,
+                genreIds: $0.genreIds
+            )
+        }
     }
 }

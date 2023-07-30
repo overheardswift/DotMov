@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import DMNetworking
+import DMNowPlaying
 import DMNowPlayingiOS
 import DMCommoniOS
 
@@ -13,15 +15,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+    private lazy var baseURL = URL(string: "https://api.themoviedb.org")!
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         UIFont.loadCustomFonts
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        let client = URLSessionHTTPClient(session: .init(configuration: .ephemeral))
+        let loader = RemoteNowPlayingLoader(baseURL: baseURL, client: client)
+        
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = NowPlayingViewController()
+        window.rootViewController = NowPlayingUIComposer.compose(loader: loader)
         self.window = window
         window.makeKeyAndVisible()
     }

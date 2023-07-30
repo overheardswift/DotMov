@@ -8,25 +8,25 @@
 import UIKit
 import DMCommoniOS
 
-final class NowPlayingCell: UICollectionViewCell {
+public final class NowPlayingCell: UICollectionViewCell {
     
     static var id: String {
         return String(describing: NowPlayingCell.self)
     }
     
-    private let thumbnailImageView = UIImageView()
+    private(set) public var thumbnailImageView = UIImageView()
     private let rightContentStackView = UIStackView()
-    private let titleLabel = UILabel()
-    private let yearLabel = UILabel()
-    private let categoryLabel = UILabel()
+    private(set) public var titleLabel = UILabel()
+    private(set) public var yearLabel = UILabel()
+    private(set) public var categoryLabel = UILabel()
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
     }
     
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("Unimplemented")
     }
 }

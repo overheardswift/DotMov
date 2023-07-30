@@ -41,4 +41,8 @@ public class NowPlayingPresenter {
         view.display(.init(pageNumber: feed.page, items: feed.items))
         pagingView.display(.init(isLoading: false, isLast: feed.page == feed.totalPages, pageNumber: feed.page))
     }
+    
+    public func didFinishLoadingWithError() {
+        loadingView.display(.init(isLoading: false))
+    }
 }

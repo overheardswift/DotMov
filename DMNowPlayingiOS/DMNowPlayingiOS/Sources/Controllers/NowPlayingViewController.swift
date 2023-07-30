@@ -1,0 +1,104 @@
+//
+//  NowPlayingViewController.swift
+//  DMNowPlayingiOS
+//
+//  Created by Bayu Kurniawan on 27/07/23.
+//
+
+import UIKit
+
+public final class NowPlayingViewController: UICollectionViewController {
+    
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Int, NowPlayingCellController> = {
+        return .init(collectionView: collectionView) { collectionView, indexPath, controller in
+            return controller.view(in: collectionView, forItemAt: indexPath)
+        }
+    }()
+    
+    var refreshController: NowPlayingRefreshController?
+    var pagingController: NowPlayingPagingController?
+    
+    convenience init(
+        refreshController: NowPlayingRefreshController,
+        pagingController: NowPlayingPagingController
+    ) {
+        self.init(collectionViewLayout: UICollectionViewFlowLayout())
+        self.refreshController = refreshController
+        self.pagingController = pagingController
+    }
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
+        refreshController?.refresh()
+    }
+    
+    func set(_ newItems: [NowPlayingCellController]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, NowPlayingCellController>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(newItems, toSection: 0)
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
+    
+    func append(_ newItems: [NowPlayingCellController]) {
+        var snapshot = dataSource.snapshot()
+        snapshot.appendItems(newItems, toSection: 0)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    public override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        guard collectionView.refreshControl?.isRefreshing == true else { return }
+        refreshController?.refresh()
+    }
+    
+    public override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+      guard scrollView.isDragging else { return }
+      
+      let offsetY = scrollView.contentOffset.y
+      let contentHeight = scrollView.contentSize.height
+      if (offsetY > contentHeight - scrollView.frame.height) {
+        pagingController?.load()
+      }
+    }
+}
+
+private extension NowPlayingViewController {
+    func configureUI() {
+        configureCollectionView()
+    }
+    
+    func configureCollectionView() {
+        collectionView.collectionViewLayout = createLayout()
+        collectionView.dataSource = dataSource
+        collectionView.register(NowPlayingCell.self, forCellWithReuseIdentifier: NowPlayingCell.id)
+        collectionView.delegate = self
+        collectionView.refreshControl = refreshController?.view
+    }
+    
+    func createLayout() -> UICollectionViewCompositionalLayout {
+        return UICollectionViewCompositionalLayout { section, _ in
+            
+            let item = NSCollectionLayoutItem(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(1)
+                )
+            )
+            
+            let group = NSCollectionLayoutGroup.vertical(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .absolute(100)
+                ),
+                subitems: [item]
+            )
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.interGroupSpacing = 20
+            section.contentInsets.leading = 16
+            section.contentInsets.trailing = 16
+            
+            return section
+        }
+    }
+}

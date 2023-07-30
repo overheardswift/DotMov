@@ -8,6 +8,7 @@
 import Foundation
 import DMNowPlaying
 import DMMedia
+import DMCommon
 
 public enum NowPlayingUIComposer {
 	
@@ -17,7 +18,7 @@ public enum NowPlayingUIComposer {
 		onSelectCallback: @escaping (Int) -> Void
 	) -> NowPlayingViewController {
 		
-		let adapter = NowPlayingPresentationAdapter(loader: MainQueueDispatchDecoratee(loader))
+		let adapter = NowPlayingPresentationAdapter(loader: MainQueueDispatchDecorator(loader))
 		let refreshController = NowPlayingRefreshController(delegate: adapter)
 		let pagingController = NowPlayingPagingController(delegate: adapter)
 		let viewController = NowPlayingViewController(
@@ -28,7 +29,7 @@ public enum NowPlayingUIComposer {
 		adapter.presenter = NowPlayingPresenter(
 			view: NowPlayingViewAdapter(
 				controller: viewController,
-				imageLoader: MainQueueDispatchDecoratee(imageLoader),
+				imageLoader: MainQueueDispatchDecorator(imageLoader),
 				onSelectCallback: onSelectCallback
 			),
 			loadingView: WeakRefVirtualProxy(refreshController),
@@ -39,33 +40,16 @@ public enum NowPlayingUIComposer {
 	}
 }
 
-// TODO: Move below codes to `Common` module
-final class MainQueueDispatchDecoratee<T> {
-	private(set) var decoratee: T
-	
-	init(_ decoratee: T) {
-		self.decoratee = decoratee
-	}
-	
-	func dispatch(completion: @escaping () -> Void) {
-		guard Thread.isMainThread else {
-			return DispatchQueue.main.async(execute: completion)
-		}
-		
-		completion()
-	}
-}
-
-extension MainQueueDispatchDecoratee: NowPlayingLoader where T == NowPlayingLoader {
-	func execute(_ req: PagedNowPlayingRequest, completion: @escaping (NowPlayingLoader.Result) -> Void) {
+extension MainQueueDispatchDecorator: NowPlayingLoader where T == NowPlayingLoader {
+	public func execute(_ req: PagedNowPlayingRequest, completion: @escaping (NowPlayingLoader.Result) -> Void) {
 		decoratee.execute(req, completion: { [weak self] result in
 			self?.dispatch { completion(result) }
 		})
 	}
 }
 
-extension MainQueueDispatchDecoratee: ImageDataLoader where T == ImageDataLoader {
-	func load(from imageURL: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
+extension MainQueueDispatchDecorator: ImageDataLoader where T == ImageDataLoader {
+	public func load(from imageURL: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
 		decoratee.load(from: imageURL, completion: { [weak self] result in
 			self?.dispatch { completion(result) }
 		})

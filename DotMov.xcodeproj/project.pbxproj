@@ -15,6 +15,8 @@
 		4FAC06192A76C5D1006705DB /* DMMovieDetail.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06162A76C5D1006705DB /* DMMovieDetail.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FAC061A2A76C5D1006705DB /* DMMovieDetailiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06172A76C5D1006705DB /* DMMovieDetailiOS.framework */; };
 		4FAC061B2A76C5D1006705DB /* DMMovieDetailiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06172A76C5D1006705DB /* DMMovieDetailiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4FAC06312A76CD58006705DB /* DMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06302A76CD58006705DB /* DMCommon.framework */; };
+		4FAC06322A76CD58006705DB /* DMCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAC06302A76CD58006705DB /* DMCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FD638E22A727C9F00688A26 /* DMNowPlayingiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD638E12A727C9F00688A26 /* DMNowPlayingiOS.framework */; };
 		4FD638E32A727C9F00688A26 /* DMNowPlayingiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD638E12A727C9F00688A26 /* DMNowPlayingiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FD639172A73746A00688A26 /* DMCommoniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD639162A73746A00688A26 /* DMCommoniOS.framework */; };
@@ -34,6 +36,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4FAC06322A76CD58006705DB /* DMCommon.framework in Embed Frameworks */,
 				4FD639182A73746A00688A26 /* DMCommoniOS.framework in Embed Frameworks */,
 				4FD639C12A765FEE00688A26 /* DMNetworking.framework in Embed Frameworks */,
 				4FD638E32A727C9F00688A26 /* DMNowPlayingiOS.framework in Embed Frameworks */,
@@ -56,6 +59,7 @@
 		4F96BB7C2A6BC487008F933D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FAC06162A76C5D1006705DB /* DMMovieDetail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMMovieDetail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAC06172A76C5D1006705DB /* DMMovieDetailiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMMovieDetailiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FAC06302A76CD58006705DB /* DMCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD638E12A727C9F00688A26 /* DMNowPlayingiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMNowPlayingiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD639162A73746A00688A26 /* DMCommoniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMCommoniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD639BF2A765FEE00688A26 /* DMNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAC06312A76CD58006705DB /* DMCommon.framework in Frameworks */,
 				4FD639172A73746A00688A26 /* DMCommoniOS.framework in Frameworks */,
 				4FD639C02A765FEE00688A26 /* DMNetworking.framework in Frameworks */,
 				4FD638E22A727C9F00688A26 /* DMNowPlayingiOS.framework in Frameworks */,
@@ -113,6 +118,7 @@
 		4FD638E02A727C9F00688A26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FAC06302A76CD58006705DB /* DMCommon.framework */,
 				4FAC06162A76C5D1006705DB /* DMMovieDetail.framework */,
 				4FAC06172A76C5D1006705DB /* DMMovieDetailiOS.framework */,
 				4FD639E72A76736800688A26 /* DMMedia.framework */,

@@ -28,6 +28,8 @@
 		4FAC06112A76BE68006705DB /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC06102A76BE68006705DB /* MovieDetailsViewController.swift */; };
 		4FAC06152A76BEC6006705DB /* ScrollViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC06142A76BEC6006705DB /* ScrollViewContainer.swift */; };
 		4FAC061D2A76C95B006705DB /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC061C2A76C95B006705DB /* PaddingLabel.swift */; };
+		4FAC06202A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC061F2A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift */; };
+		4FAC06232A76CBB7006705DB /* MovieDetailsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC06222A76CBB7006705DB /* MovieDetailsUIComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		4FAC06102A76BE68006705DB /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		4FAC06142A76BEC6006705DB /* ScrollViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewContainer.swift; sourceTree = "<group>"; };
 		4FAC061C2A76C95B006705DB /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		4FAC061F2A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresentationAdapter.swift; sourceTree = "<group>"; };
+		4FAC06222A76CBB7006705DB /* MovieDetailsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsUIComposer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +257,8 @@
 		4FAC060F2A76BE58006705DB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				4FAC06212A76CBAC006705DB /* Composers */,
+				4FAC061E2A76CAD3006705DB /* Adapters */,
 				4FAC06132A76BE98006705DB /* Views */,
 				4FAC06122A76BE92006705DB /* Controllers */,
 			);
@@ -274,6 +280,22 @@
 				4FAC061C2A76C95B006705DB /* PaddingLabel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4FAC061E2A76CAD3006705DB /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				4FAC061F2A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		4FAC06212A76CBAC006705DB /* Composers */ = {
+			isa = PBXGroup;
+			children = (
+				4FAC06222A76CBB7006705DB /* MovieDetailsUIComposer.swift */,
+			);
+			path = Composers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,8 +500,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FAC061D2A76C95B006705DB /* PaddingLabel.swift in Sources */,
+				4FAC06232A76CBB7006705DB /* MovieDetailsUIComposer.swift in Sources */,
 				4FAC06112A76BE68006705DB /* MovieDetailsViewController.swift in Sources */,
 				4FAC06152A76BEC6006705DB /* ScrollViewContainer.swift in Sources */,
+				4FAC06202A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

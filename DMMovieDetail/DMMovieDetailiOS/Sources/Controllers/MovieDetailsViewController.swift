@@ -7,6 +7,11 @@
 
 import UIKit
 import DMCommoniOS
+import DMMovieDetail
+
+protocol MovieDetailsViewControllerDelegate {
+	func didRequestLoad()
+}
 
 public final class MovieDetailsViewController: UIViewController {
     
@@ -14,11 +19,19 @@ public final class MovieDetailsViewController: UIViewController {
 	private let headerView = UIView()
 	private let overviewLabel = PaddingLabel()
 	
+	private var delegate: MovieDetailsViewControllerDelegate?
+	
+	convenience init(delegate: MovieDetailsViewControllerDelegate) {
+		self.init(nibName: nil, bundle: nil)
+		self.delegate = delegate
+	}
+	
 	public override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .white
-		
 		configureUI()
+		
+		delegate?.didRequestLoad()
 	}
 }
 
@@ -63,5 +76,11 @@ private extension MovieDetailsViewController {
 		overviewLabel.textColor = .boulder
 		
 		scrollViewContainer.addArrangedSubViews(overviewLabel)
+	}
+}
+
+extension MovieDetailsViewController: MovieDetailsView {
+	public func display(_ model: MovieDetailsViewModel<UIImage>) {
+		overviewLabel.text = model.overview
 	}
 }

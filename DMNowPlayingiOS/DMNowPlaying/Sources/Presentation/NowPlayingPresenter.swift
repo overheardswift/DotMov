@@ -62,7 +62,7 @@ private extension String {
 	}
 }
 
-private extension Array where Element == NowPlayingItem {
+public extension Array where Element == NowPlayingItem {
 	func presentedItems(with genres: [Genre]) -> [NowPlayingItemViewModel] {
 		return map {
 			NowPlayingItemViewModel(

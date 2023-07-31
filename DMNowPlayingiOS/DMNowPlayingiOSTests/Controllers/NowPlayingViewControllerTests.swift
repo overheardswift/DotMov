@@ -35,6 +35,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		XCTAssertTrue(sut.loadingIndicatorIsVisible)
 		
 		loader.loadFeedCompletes(with: .success(.init(items: [], page: 1, totalPages: 1)))
+		loader.loadGenresCompletes()
 		XCTAssertFalse(sut.loadingIndicatorIsVisible)
 		
 		sut.simulateUserRefresh()
@@ -53,6 +54,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		assertThat(sut, isRendering: [])
 		
 		loader.loadFeedCompletes(with: .success(feedPage))
+		loader.loadGenresCompletes()
 		assertThat(sut, isRendering: items)
 	}
 	
@@ -67,6 +69,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
+		loader.loadGenresCompletes()
 		XCTAssertTrue(loader.loadedImageURLs.isEmpty)
 		
 		sut.simulateItemVisible(at: 0)
@@ -87,6 +90,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
+		loader.loadGenresCompletes()
 		XCTAssertTrue(loader.loadedImageURLs.isEmpty)
 		
 		sut.simulateItemNotVisible(at: 0)
@@ -104,7 +108,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
-		
+		loader.loadGenresCompletes()
 		let viewOne = sut.simulateItemVisible(at: 0) as? NowPlayingCell
 		XCTAssertEqual(viewOne?.contentView.loadingIndicatorIsVisible, true)
 		
@@ -129,6 +133,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
+		loader.loadGenresCompletes()
 		XCTAssertTrue(loader.loadedImageURLs.isEmpty)
 		
 		sut.simulateItemNearVisible(at: 0)
@@ -149,6 +154,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
+		loader.loadGenresCompletes()
 		XCTAssertTrue(loader.loadedImageURLs.isEmpty)
 		
 		sut.simulateItemNoLongerNearVisible(at: 0)
@@ -165,6 +171,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
+		loader.loadGenresCompletes()
 		
 		let view = sut.simulateItemNotVisible(at: 0) as? NowPlayingCell
 		loader.completeImageLoading(with: makeImageData(), at: 0)
@@ -195,6 +202,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		let imageData = makeImageData()
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
+		loader.loadGenresCompletes()
 		
 		sut.simulateItemVisible(at: 0)
 		
@@ -216,6 +224,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
+		loader.loadGenresCompletes()
 		
 		sut.simulatePagingRequest()
 		XCTAssertEqual(loader.messages, [
@@ -231,6 +240,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
+		loader.loadGenresCompletes()
 		
 		sut.simulatePagingRequest()
 		XCTAssertEqual(loader.messages, [
@@ -245,6 +255,7 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
+		loader.loadGenresCompletes()
 		
 		sut.simulatePagingRequest()
 		sut.simulateUserRefresh()
@@ -269,10 +280,12 @@ class NowPlayingViewControllerTests: XCTestCase {
 		assertThat(sut, isRendering: [])
 		
 		loader.loadFeedCompletes(with: .success(feedPage1))
+		loader.loadGenresCompletes()
 		assertThat(sut, isRendering: items1)
 		
 		sut.simulatePagingRequest()
 		loader.loadFeedCompletes(with: .success(feedPage2))
+		loader.loadGenresCompletes(at: 1)
 		assertThat(sut, isRendering: items1 + items2)
 	}
 	
@@ -287,12 +300,16 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage1))
+		loader.loadGenresCompletes()
 		
 		sut.simulatePagingRequest()
 		loader.loadFeedCompletes(with: .success(feedPage2))
-		
+		loader.loadGenresCompletes()
+
 		sut.simulateUserRefresh()
 		loader.loadFeedCompletes(with: .success(feedPage1))
+		loader.loadGenresCompletes()
+
 		assertThat(sut, isRendering: items1)
 	}
 	
@@ -305,7 +322,8 @@ class NowPlayingViewControllerTests: XCTestCase {
 		
 		sut.loadViewIfNeeded()
 		loader.loadFeedCompletes(with: .success(feedPage))
-		
+		loader.loadGenresCompletes()
+
 		sut.simulateSelectItem(at: 0)
 		
 		XCTAssertEqual(output, item.id)
@@ -317,6 +335,7 @@ private extension NowPlayingViewControllerTests {
 		let loader = LoaderSpy()
 		let sut = NowPlayingUIComposer.compose(
 			loader: loader,
+			genresLoader: loader,
 			imageLoader: loader,
 			onSelectCallback: onSelectSpy
 		)
@@ -351,7 +370,7 @@ private extension NowPlayingViewControllerTests {
 		}
 	}
 	
-	class LoaderSpy: NowPlayingLoader, ImageDataLoader {
+	class LoaderSpy: NowPlayingLoader, ImageDataLoader, GenresLoader {
 		
 		enum Message: Equatable {
 			case load(PagedNowPlayingRequest)
@@ -359,6 +378,7 @@ private extension NowPlayingViewControllerTests {
 		
 		private(set) var messages: [Message] = []
 		private var loadCompletions: [(NowPlayingLoader.Result) -> Void] = []
+		private var genresCompletion: [(GenresLoader.Result) -> Void] = []
 		
 		func execute(_ req: PagedNowPlayingRequest, completion: @escaping (NowPlayingLoader.Result) -> Void) {
 			messages.append(.load(req))
@@ -387,6 +407,18 @@ private extension NowPlayingViewControllerTests {
 		func load(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
 			imageRequests.append((url, completion))
 			return TaskSpy { [weak self] in self?.cancelledImageURLs.append(url) }
+		}
+		
+		func load(completion: @escaping (GenresLoader.Result) -> Void) {
+			genresCompletion.append(completion)
+		}
+		
+		func loadGenresCompletes(at index: Int = 0, file: StaticString = #file, line: UInt = #line) {
+			guard !genresCompletion.isEmpty else {
+				XCTFail("No genres", file: file, line: line)
+				return
+			}
+			genresCompletion[index](.success([]))
 		}
 		
 		func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {

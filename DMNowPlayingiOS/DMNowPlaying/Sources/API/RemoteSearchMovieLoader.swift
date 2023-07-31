@@ -55,10 +55,7 @@ private extension RemoteSearchMovieLoader {
 				urlComponents?.queryItems = [
 						URLQueryItem(name: "language", value: req.language),
 						URLQueryItem(name: "page", value: String(req.page)),
-						URLQueryItem(name: "query", value: req.query),
-						
-						// TODO: Move API Key
-						URLQueryItem(name: "api_key", value: "7157aee554910d31feca06cc84700142")
+						URLQueryItem(name: "query", value: req.query)
 				]
 				
 				return urlComponents?.url ?? requestURL

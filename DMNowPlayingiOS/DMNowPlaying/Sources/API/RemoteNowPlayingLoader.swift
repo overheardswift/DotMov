@@ -54,10 +54,7 @@ private extension RemoteNowPlayingLoader {
         var urlComponents = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
         urlComponents?.queryItems = [
             URLQueryItem(name: "language", value: req.language),
-            URLQueryItem(name: "page", value: String(req.page)),
-            
-            // TODO: Move API Key
-            URLQueryItem(name: "api_key", value: "7157aee554910d31feca06cc84700142")
+            URLQueryItem(name: "page", value: String(req.page))
         ]
         
         return urlComponents?.url ?? requestURL

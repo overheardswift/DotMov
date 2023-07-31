@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	
 	private lazy var baseURL = URL(string: "https://api.themoviedb.org")!
 	private lazy var navigationController = UINavigationController()
+	private lazy var config: APIConfig = getConfig(fromPlist: "APIConfig")
 	
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		
@@ -40,10 +41,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 private extension SceneDelegate {
 	func makeNowPlayingScene() -> NowPlayingViewController {
 		let client = URLSessionHTTPClient()
-		let nowPlayingLoader = RemoteNowPlayingLoader(baseURL: baseURL, client: client)
-		let genresLoader = RemoteGenresLoader(baseURL: baseURL, client: client)
-		let imageLoader = RemoteImageDataLoader(client: client)
-		let searchMoviesLoader = RemoteSearchMovieLoader(baseURL: baseURL, client: client)
+		let authenticatedClient = AuthenticatedHTTPClientDecorator(decoratee: client, config: config)
+		let nowPlayingLoader = RemoteNowPlayingLoader(baseURL: baseURL, client: authenticatedClient)
+		let genresLoader = RemoteGenresLoader(baseURL: baseURL, client: authenticatedClient)
+		let imageLoader = RemoteImageDataLoader(client: authenticatedClient)
+		let searchMoviesLoader = RemoteSearchMovieLoader(baseURL: baseURL, client: authenticatedClient)
 		
 		let viewController = NowPlayingUIComposer.compose(
 			loader: nowPlayingLoader,
@@ -62,9 +64,10 @@ private extension SceneDelegate {
 	
 	func makeMovieDetailScene(for id: Int) -> MovieDetailsViewController {
 		let client = URLSessionHTTPClient()
-		let movieLoader = RemoteMovieLoader(baseURL: baseURL, client: client)
-		let castLoader = RemoteCastLoader(baseURL: baseURL, client: client)
-		let imageLoader = RemoteImageDataLoader(client: client)
+		let authenticatedClient = AuthenticatedHTTPClientDecorator(decoratee: client, config: config)
+		let movieLoader = RemoteMovieLoader(baseURL: baseURL, client: authenticatedClient)
+		let castLoader = RemoteCastLoader(baseURL: baseURL, client: authenticatedClient)
+		let imageLoader = RemoteImageDataLoader(client: authenticatedClient)
 		
 		let viewController = MovieDetailsUIComposer.compose(
 			id: id,

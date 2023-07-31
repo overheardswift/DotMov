@@ -53,13 +53,7 @@ private extension RemoteGenresLoader {
 			.appending(path: "movie")
 			.appending(path: "list")
 		
-		var urlComponents = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
-		urlComponents?.queryItems = [
-			// TODO: Move API Key
-			URLQueryItem(name: "api_key", value: "7157aee554910d31feca06cc84700142")
-		]
-		
-		return urlComponents?.url ?? requestURL
+		return requestURL
 	}
 	
 	static func map(_ data: Data, from response: HTTPURLResponse) -> Result {

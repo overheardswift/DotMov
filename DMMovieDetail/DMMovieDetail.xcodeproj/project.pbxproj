@@ -38,6 +38,8 @@
 		4FFF39C72A77310C0039033F /* CastLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39C62A77310C0039033F /* CastLoader.swift */; };
 		4FFF39C92A77315C0039033F /* RemoteCastLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39C82A77315C0039033F /* RemoteCastLoader.swift */; };
 		4FFF39CB2A7731B30039033F /* CastMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39CA2A7731B30039033F /* CastMapper.swift */; };
+		4FFF39CD2A7733D10039033F /* CastCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39CC2A7733D10039033F /* CastCellController.swift */; };
+		4FFF39CF2A77372C0039033F /* MovieDetailsCastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39CE2A77372C0039033F /* MovieDetailsCastViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		4FFF39C62A77310C0039033F /* CastLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastLoader.swift; sourceTree = "<group>"; };
 		4FFF39C82A77315C0039033F /* RemoteCastLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCastLoader.swift; sourceTree = "<group>"; };
 		4FFF39CA2A7731B30039033F /* CastMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastMapper.swift; sourceTree = "<group>"; };
+		4FFF39CC2A7733D10039033F /* CastCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCellController.swift; sourceTree = "<group>"; };
+		4FFF39CE2A77372C0039033F /* MovieDetailsCastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsCastViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				4FAC05E82A76BC97006705DB /* MovieDetailsViewModel.swift */,
+				4FFF39CE2A77372C0039033F /* MovieDetailsCastViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				4FAC06102A76BE68006705DB /* MovieDetailsViewController.swift */,
+				4FFF39CC2A7733D10039033F /* CastCellController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				4FAC05E62A76BBA8006705DB /* MovieMapper.swift in Sources */,
 				4FAC05EC2A76BD45006705DB /* MovieDetailsPresenter.swift in Sources */,
 				4FFF39C72A77310C0039033F /* CastLoader.swift in Sources */,
+				4FFF39CF2A77372C0039033F /* MovieDetailsCastViewModel.swift in Sources */,
 				4FAC05DF2A76BAC7006705DB /* Movie.swift in Sources */,
 				4FFF39C92A77315C0039033F /* RemoteCastLoader.swift in Sources */,
 				4FAC05E12A76BB39006705DB /* MovieLoader.swift in Sources */,
@@ -529,6 +536,7 @@
 			files = (
 				4FAC061D2A76C95B006705DB /* PaddingLabel.swift in Sources */,
 				4FAC06232A76CBB7006705DB /* MovieDetailsUIComposer.swift in Sources */,
+				4FFF39CD2A7733D10039033F /* CastCellController.swift in Sources */,
 				4FAC06112A76BE68006705DB /* MovieDetailsViewController.swift in Sources */,
 				4FAC06152A76BEC6006705DB /* ScrollViewContainer.swift in Sources */,
 				4FAC06202A76CAE7006705DB /* MovieDetailsPresentationAdapter.swift in Sources */,

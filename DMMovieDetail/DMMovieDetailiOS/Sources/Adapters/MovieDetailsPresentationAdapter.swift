@@ -15,13 +15,15 @@ final class MovieDetailsPresentationAdapter<View: MovieDetailsView, Image>: Movi
 	
 	private let id: Int
 	private let movieLoader: MovieLoader
+	private let castLoader: CastLoader
 	private let imageLoader: ImageDataLoader
 	
 	private var task: ImageDataLoaderTask?
 	
-	init(id: Int, movieLoader: MovieLoader, imageLoader: ImageDataLoader) {
+	init(id: Int, movieLoader: MovieLoader, castLoader: CastLoader, imageLoader: ImageDataLoader) {
 		self.id = id
 		self.movieLoader = movieLoader
+		self.castLoader = castLoader
 		self.imageLoader = imageLoader
 	}
 	
@@ -34,6 +36,15 @@ final class MovieDetailsPresentationAdapter<View: MovieDetailsView, Image>: Movi
 			case .failure: break
 			}
 		})
+		
+		castLoader.load(id: id) { [weak self] result in
+			guard let self = self else { return }
+			switch result {
+			case let .success(casts):
+				self.presenter?.didFinishLoadingCastData(with: casts)
+			case .failure: break
+			}
+		}
 	}
 }
 

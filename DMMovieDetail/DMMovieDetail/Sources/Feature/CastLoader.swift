@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol CastLoader {
-	typealias Result = Swift.Result<Cast, Error>
+	typealias Result = Swift.Result<[Cast], Error>
 	func load(id: Int, completion: @escaping (Result) -> Void)
 }

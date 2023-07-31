@@ -10,6 +10,7 @@ import Foundation
 public protocol MovieDetailsView {
   associatedtype Image
   func display(_ model: MovieDetailsViewModel<Image>)
+	func display(_ casts: [MovieDetailsCastViewModel])
 }
 
 public final class MovieDetailsPresenter<View: MovieDetailsView, Image> where View.Image == Image {
@@ -38,6 +39,16 @@ public final class MovieDetailsPresenter<View: MovieDetailsView, Image> where Vi
       )
     )
   }
+	
+	public func didFinishLoadingCastData(with casts: [Cast]) {
+		let viewModels = casts.map {
+			MovieDetailsCastViewModel(name: $0.name)
+		}
+		
+		view.display(
+			viewModels.count > 10 ? Array(viewModels[0..<10]) : viewModels
+		)
+	}
 }
 
 private extension MovieDetailsPresenter {

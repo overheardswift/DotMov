@@ -9,28 +9,28 @@ import Foundation
 import DMNetworking
 
 public final class RemoteCastLoader: CastLoader {
-
+	
 	public typealias Result = CastLoader.Result
-
+	
 	public enum Error: Swift.Error {
 		case connectivity
 		case invalidResponse
 	}
-
+	
 	private let baseURL: URL
 	private let client: HTTPClient
-
+	
 	public init(baseURL: URL, client: HTTPClient) {
 		self.baseURL = baseURL
 		self.client = client
 	}
-
+	
 	public func load(id: Int, completion: @escaping (Result) -> Void) {
 		client.fetch(URLRequest(url: enrich(baseURL, with: id)), completion: { [weak self] result in
 			guard self != nil else { return }
 			switch result {
-				case let .success((data, response)): completion(RemoteCastLoader.map(data, from: response))
-				case .failure: completion(.failure(Error.connectivity))
+			case let .success((data, response)): completion(RemoteCastLoader.map(data, from: response))
+			case .failure: completion(.failure(Error.connectivity))
 			}
 		})
 	}
@@ -46,29 +46,31 @@ private extension RemoteCastLoader {
 		
 		var urlComponents = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
 		urlComponents?.queryItems = [
-				// TODO: Move API Key
-				URLQueryItem(name: "api_key", value: "7157aee554910d31feca06cc84700142")
+			// TODO: Move API Key
+			URLQueryItem(name: "api_key", value: "7157aee554910d31feca06cc84700142")
 		]
 		
 		return urlComponents?.url ?? requestURL
 	}
-
+	
 	static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
 		do {
 			let value = try CastMapper.map(data, from: response)
-			return .success(value.asCast)
+			return .success(value.cast.asCast)
 		} catch {
 			return .failure(error)
 		}
 	}
 }
 
-private extension RemoteCast {
-	var asCast: Cast {
-		return Cast(
-				id: id,
-				name: original_name,
-				profilePath: profile_path
-		)
+private extension Array where Element == RemoteCasts.RemoteCast {
+	var asCast: [Cast] {
+		return map {
+			Cast(
+				id: $0.id,
+				name: $0.original_name,
+				profilePath: $0.profile_path ?? ""
+			)
+		}
 	}
 }

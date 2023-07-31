@@ -30,6 +30,12 @@ public final class MovieDetailsViewController: UIViewController {
 		}
 	}
 	
+	private var castCellControllers = [CastCellController]() {
+		didSet {
+			collectionView.reloadData()
+		}
+	}
+	
 	private var delegate: MovieDetailsViewControllerDelegate?
 	
 	convenience init(delegate: MovieDetailsViewControllerDelegate) {
@@ -55,16 +61,21 @@ extension MovieDetailsViewController: MovieDetailsView {
 		headerView.backdropImageView.image = model.image
 		overviewLabel.text = model.overview
 	}
+	
+	public func display(_ casts: [MovieDetailsCastViewModel]) {
+		castCellControllers = casts.map {
+			CastCellController(model: $0)
+		}
+	}
 }
 
 extension MovieDetailsViewController: UICollectionViewDataSource {
 	public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 5
+		return castCellControllers.count
 	}
 	
 	public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CastCell.id, for: indexPath)
-		return cell
+		return castCellControllers[indexPath.item].view(in: collectionView, forItemAt: indexPath)
 	}
 }
 

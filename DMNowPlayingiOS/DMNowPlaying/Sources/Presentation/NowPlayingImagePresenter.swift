@@ -22,11 +22,11 @@ public final class NowPlayingImagePresenter<View: NowPlayingImageView, Image> wh
     self.imageTransformer = imageTransformer
   }
 
-  public func didStartLoadingImageData(for model: NowPlayingItem) {
+  public func didStartLoadingImageData() {
     view.display(NowPlayingImageViewModel<Image>(image: nil, isLoading: true))
   }
 
-  public func didFinishLoadingImageData(with data: Data, for model: NowPlayingItem) {
+  public func didFinishLoadingImageData(with data: Data) {
     let image = imageTransformer(data)
     view.display(NowPlayingImageViewModel<Image>(image: image, isLoading: false))
   }

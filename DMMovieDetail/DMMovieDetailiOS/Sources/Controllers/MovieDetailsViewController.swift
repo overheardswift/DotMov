@@ -50,10 +50,8 @@ public final class MovieDetailsViewController: UIViewController {
 		
 		delegate?.didRequestLoad()
 	}
-}
-
-extension MovieDetailsViewController: MovieDetailsView {
-	public func display(_ model: MovieDetailsViewModel<UIImage>) {
+	
+	func set(_ model: MovieDetailsViewModel<UIImage>) {
 		isLoading = model.isLoading
 		headerView.titleLabel.text = model.title
 		headerView.runtimeLabel.text = model.runtime
@@ -62,10 +60,8 @@ extension MovieDetailsViewController: MovieDetailsView {
 		overviewLabel.text = model.overview
 	}
 	
-	public func display(_ casts: [MovieDetailsCastViewModel]) {
-		castCellControllers = casts.map {
-			CastCellController(model: $0)
-		}
+	func set(_ controllers: [CastCellController]) {
+		castCellControllers = controllers
 	}
 }
 
@@ -76,6 +72,14 @@ extension MovieDetailsViewController: UICollectionViewDataSource {
 	
 	public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		return castCellControllers[indexPath.item].view(in: collectionView, forItemAt: indexPath)
+	}
+	
+	public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+		castCellControllers[indexPath.item].prefetch()
+	}
+	
+	public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+		castCellControllers[indexPath.item].cancelLoad()
 	}
 }
 

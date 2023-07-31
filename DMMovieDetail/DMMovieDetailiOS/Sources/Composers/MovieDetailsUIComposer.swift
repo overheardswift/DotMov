@@ -17,8 +17,8 @@ public enum MovieDetailsUIComposer {
 		castLoader: CastLoader,
 		imageLoader: ImageDataLoader
 	) -> MovieDetailsViewController {
-		
-		let movieAdapter = MovieDetailsPresentationAdapter<WeakRefVirtualProxy<MovieDetailsViewController>, UIImage>(
+	
+		let movieAdapter = MovieDetailsPresentationAdapter<MovieDetailsViewAdapter, UIImage>(
 			id: id,
 			movieLoader: MainQueueDispatchDecorator(movieLoader),
 			castLoader: MainQueueDispatchDecorator(castLoader),
@@ -28,9 +28,13 @@ public enum MovieDetailsUIComposer {
 		let viewController = MovieDetailsViewController(
 			delegate: movieAdapter
 		)
-		
+
+	
 		movieAdapter.presenter = MovieDetailsPresenter(
-			view: WeakRefVirtualProxy(viewController),
+			view: MovieDetailsViewAdapter(
+				controller: viewController,
+				imageLoader: MainQueueDispatchDecorator(imageLoader)
+			),
 			imageTransformer: UIImage.init
 		)
 		

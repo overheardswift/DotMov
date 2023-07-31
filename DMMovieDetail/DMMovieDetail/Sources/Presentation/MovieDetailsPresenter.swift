@@ -42,7 +42,10 @@ public final class MovieDetailsPresenter<View: MovieDetailsView, Image> where Vi
 	
 	public func didFinishLoadingCastData(with casts: [Cast]) {
 		let viewModels = casts.map {
-			MovieDetailsCastViewModel(name: $0.name)
+			MovieDetailsCastViewModel(
+				name: $0.name,
+				profilePath: $0.profilePath
+			)
 		}
 		
 		view.display(

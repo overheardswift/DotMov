@@ -26,10 +26,28 @@ final class CastCell: UICollectionViewCell {
 	required init?(coder: NSCoder) {
 		return nil
 	}
+	
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		profileImageView.layer.sublayers = nil
+	}
+	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		let gradient = CAGradientLayer()
+		gradient.frame = bounds
+		gradient.colors = [
+			UIColor.black.withAlphaComponent(0.4),
+			UIColor.black.withAlphaComponent(0.5)
+		].map{ $0.cgColor }
+		
+		profileImageView.layer.addSublayer(gradient)
+	}
 }
 
 private extension CastCell {
 	func configureUI() {
+		isUserInteractionEnabled = false
 		configureProfileImageView()
 		configureNameLabel()
 	}
@@ -38,6 +56,8 @@ private extension CastCell {
 		profileImageView.translatesAutoresizingMaskIntoConstraints = false
 		profileImageView.backgroundColor = .cloud
 		profileImageView.layer.cornerRadius = contentView.bounds.width / 2
+		profileImageView.clipsToBounds = true
+		profileImageView.contentMode = .scaleAspectFill
 		
 		contentView.addSubview(profileImageView)
 		NSLayoutConstraint.activate([
@@ -52,7 +72,6 @@ private extension CastCell {
 		nameLabel.font = .poppins(.regular, size: 12)
 		nameLabel.textAlignment = .center
 		nameLabel.numberOfLines = 2
-		nameLabel.text = "John Doe"
 		
 		contentView.addSubview(nameLabel)
 		NSLayoutConstraint.activate([

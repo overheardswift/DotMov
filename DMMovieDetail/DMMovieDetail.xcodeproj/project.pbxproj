@@ -36,6 +36,8 @@
 		4FFF39C32A772CFC0039033F /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39C22A772CFC0039033F /* CastCell.swift */; };
 		4FFF39C52A7730F00039033F /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39C42A7730F00039033F /* Cast.swift */; };
 		4FFF39C72A77310C0039033F /* CastLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39C62A77310C0039033F /* CastLoader.swift */; };
+		4FFF39C92A77315C0039033F /* RemoteCastLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39C82A77315C0039033F /* RemoteCastLoader.swift */; };
+		4FFF39CB2A7731B30039033F /* CastMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39CA2A7731B30039033F /* CastMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		4FFF39C22A772CFC0039033F /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
 		4FFF39C42A7730F00039033F /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		4FFF39C62A77310C0039033F /* CastLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastLoader.swift; sourceTree = "<group>"; };
+		4FFF39C82A77315C0039033F /* RemoteCastLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCastLoader.swift; sourceTree = "<group>"; };
+		4FFF39CA2A7731B30039033F /* CastMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,8 @@
 			children = (
 				4FAC05E32A76BB79006705DB /* RemoteMovieLoader.swift */,
 				4FAC05E52A76BBA8006705DB /* MovieMapper.swift */,
+				4FFF39C82A77315C0039033F /* RemoteCastLoader.swift */,
+				4FFF39CA2A7731B30039033F /* CastMapper.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -499,10 +505,12 @@
 				4FAC05E92A76BC97006705DB /* MovieDetailsViewModel.swift in Sources */,
 				4FAC05E42A76BB79006705DB /* RemoteMovieLoader.swift in Sources */,
 				4FFF39C52A7730F00039033F /* Cast.swift in Sources */,
+				4FFF39CB2A7731B30039033F /* CastMapper.swift in Sources */,
 				4FAC05E62A76BBA8006705DB /* MovieMapper.swift in Sources */,
 				4FAC05EC2A76BD45006705DB /* MovieDetailsPresenter.swift in Sources */,
 				4FFF39C72A77310C0039033F /* CastLoader.swift in Sources */,
 				4FAC05DF2A76BAC7006705DB /* Movie.swift in Sources */,
+				4FFF39C92A77315C0039033F /* RemoteCastLoader.swift in Sources */,
 				4FAC05E12A76BB39006705DB /* MovieLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

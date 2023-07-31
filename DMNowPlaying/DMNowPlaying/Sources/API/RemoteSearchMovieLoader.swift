@@ -47,9 +47,9 @@ public final class RemoteSearchMovieLoader: NowPlayingLoader {
 private extension RemoteSearchMovieLoader {
 		func enrich(_ url: URL, with req: PagedNowPlayingRequest) -> URL {
 				let requestURL = url
-						.appending(path: "3")
-						.appending(path: "search")
-						.appending(path: "movie")
+						.appendingPathComponent("3")
+						.appendingPathComponent("search")
+						.appendingPathComponent("movie")
 			
 				var urlComponents = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
 				urlComponents?.queryItems = [

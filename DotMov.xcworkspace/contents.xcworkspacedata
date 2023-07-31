@@ -11,10 +11,10 @@
       location = "group:DMMedia/DMMedia.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/bayukurniawan/Documents/DotMov/DMNowPlayingiOS/DMNowPlaying.xcodeproj">
+      location = "group:DMNowPlaying/../DMCommon/DMCommon.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/bayukurniawan/Documents/DotMov/DMCommoniOS/DMCommon.xcodeproj">
+      location = "group:DMNowPlaying/DMNowPlaying.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:DMNetworking/DMNetworking.xcodeproj">

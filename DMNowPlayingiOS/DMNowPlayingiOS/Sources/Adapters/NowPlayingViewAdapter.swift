@@ -40,7 +40,7 @@ extension NowPlayingViewAdapter: NowPlayingView {
 }
 
 private extension NowPlayingViewAdapter {
-	func makeCellController(for model: NowPlayingItem) -> NowPlayingCellController {
+	func makeCellController(for model: NowPlayingItemViewModel) -> NowPlayingCellController {
 		let adapter = NowPlayingImageDataLoaderPresentationAdapter<WeakRefVirtualProxy<NowPlayingCellController>, UIImage>(
 			baseURL: URL(string: "https://image.tmdb.org/t/p/w500/")!,
 			model: model,

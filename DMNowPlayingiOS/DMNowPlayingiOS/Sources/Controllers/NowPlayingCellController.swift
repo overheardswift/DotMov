@@ -15,12 +15,12 @@ protocol NowPlayingCellControllerDelegate {
 
 final class NowPlayingCellController: Hashable {
 	
-	private let model: NowPlayingItem
+	private let model: NowPlayingItemViewModel
 	private let delegate: NowPlayingCellControllerDelegate
 	
 	var didSelect: (() -> Void)?
 	
-	init(model: NowPlayingItem, delegate: NowPlayingCellControllerDelegate) {
+	init(model: NowPlayingItemViewModel, delegate: NowPlayingCellControllerDelegate) {
 		self.model = model
 		self.delegate = delegate
 	}
@@ -39,6 +39,8 @@ final class NowPlayingCellController: Hashable {
 		cell = collectionView.dequeueReusableCell(withReuseIdentifier: NowPlayingCell.id, for: indexPath) as? NowPlayingCell
 		cell?.titleLabel.text = model.title
 		cell?.yearLabel.text = model.releaseDate
+		cell?.categoryLabel.text = model.genre
+		
 		return cell!
 	}
 	

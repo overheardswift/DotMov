@@ -14,12 +14,12 @@ final class NowPlayingImageDataLoaderPresentationAdapter<View: NowPlayingImageVi
     var presenter: NowPlayingImagePresenter<View, Image>?
     
     private let baseURL: URL
-    private let model: NowPlayingItem
+    private let model: NowPlayingItemViewModel
     private let imageLoader: ImageDataLoader
     
     private var task: ImageDataLoaderTask?
     
-    init(baseURL: URL, model: NowPlayingItem, imageLoader: ImageDataLoader) {
+    init(baseURL: URL, model: NowPlayingItemViewModel, imageLoader: ImageDataLoader) {
         self.baseURL = baseURL
         self.model = model
         self.imageLoader = imageLoader

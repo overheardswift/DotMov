@@ -27,13 +27,6 @@ final class NowPlayingItemsMapper {
   private static var OK_200: Int { return 200 }
 
   static func map(_ data: Data, from response: HTTPURLResponse) throws -> RemoteNowPlayingFeed {
-
-    do {
-      let _ = try JSONDecoder().decode(RemoteNowPlayingFeed.self, from: data)
-    } catch {
-      print(error)
-    }
-
     guard response.statusCode == OK_200, let page = try? JSONDecoder().decode(RemoteNowPlayingFeed.self, from: data) else {
       throw RemoteNowPlayingLoader.Error.invalidResponse
     }

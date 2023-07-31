@@ -14,11 +14,16 @@ public enum NowPlayingUIComposer {
 	
 	public static func compose(
 		loader: NowPlayingLoader,
+		genresLoader: GenresLoader,
 		imageLoader: ImageDataLoader,
 		onSelectCallback: @escaping (Int) -> Void
 	) -> NowPlayingViewController {
 		
-		let adapter = NowPlayingPresentationAdapter(loader: MainQueueDispatchDecorator(loader))
+		let adapter = NowPlayingPresentationAdapter(
+			nowPlayingLoader: MainQueueDispatchDecorator(loader),
+			genresLoader: MainQueueDispatchDecorator(genresLoader)
+		)
+		
 		let refreshController = NowPlayingRefreshController(delegate: adapter)
 		let pagingController = NowPlayingPagingController(delegate: adapter)
 		let viewController = NowPlayingViewController(
@@ -45,6 +50,14 @@ extension MainQueueDispatchDecorator: NowPlayingLoader where T == NowPlayingLoad
 		decoratee.execute(req, completion: { [weak self] result in
 			self?.dispatch { completion(result) }
 		})
+	}
+}
+
+extension MainQueueDispatchDecorator: GenresLoader where T == GenresLoader {
+	public func load(completion: @escaping (GenresLoader.Result) -> Void) {
+		decoratee.load { [weak self] result in
+			self?.dispatch { completion(result) }
+		}
 	}
 }
 

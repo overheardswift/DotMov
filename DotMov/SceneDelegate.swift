@@ -41,10 +41,12 @@ private extension SceneDelegate {
 	func makeNowPlayingScene() -> NowPlayingViewController {
 		let client = URLSessionHTTPClient()
 		let nowPlayingLoader = RemoteNowPlayingLoader(baseURL: baseURL, client: client)
+		let genresLoader = RemoteGenresLoader(baseURL: baseURL, client: client)
 		let imageLoader = RemoteImageDataLoader(client: client)
-	
+		
 		let viewController = NowPlayingUIComposer.compose(
 			loader: nowPlayingLoader,
+			genresLoader: genresLoader,
 			imageLoader: imageLoader,
 			onSelectCallback: { [weak self] movieID in
 				guard let self = self else { return }

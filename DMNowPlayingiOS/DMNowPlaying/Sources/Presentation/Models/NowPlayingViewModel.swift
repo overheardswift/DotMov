@@ -8,6 +8,6 @@
 import Foundation
 
 public struct NowPlayingViewModel: Equatable {
-    public let pageNumber: Int
-    public let items: [NowPlayingItem]
+	public let pageNumber: Int
+	public let items: [NowPlayingItemViewModel]
 }

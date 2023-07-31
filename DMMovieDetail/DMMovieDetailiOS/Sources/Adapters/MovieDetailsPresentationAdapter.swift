@@ -14,20 +14,20 @@ final class MovieDetailsPresentationAdapter<View: MovieDetailsView, Image>: Movi
 	var presenter: MovieDetailsPresenter<View, Image>?
 	
 	private let id: Int
-	private let loader: MovieLoader
+	private let movieLoader: MovieLoader
 	private let imageLoader: ImageDataLoader
 	
 	private var task: ImageDataLoaderTask?
 	
-	init(id: Int, loader: MovieLoader, imageLoader: ImageDataLoader) {
+	init(id: Int, movieLoader: MovieLoader, imageLoader: ImageDataLoader) {
 		self.id = id
-		self.loader = loader
+		self.movieLoader = movieLoader
 		self.imageLoader = imageLoader
 	}
 	
 	func didRequestLoad() {
 		presenter?.didStartLoading()
-		loader.load(id: id, completion: { [weak self] result in
+		movieLoader.load(id: id, completion: { [weak self] result in
 			guard let self = self else { return }
 			switch result {
 			case let .success(movie): self.loadImage(for: movie)

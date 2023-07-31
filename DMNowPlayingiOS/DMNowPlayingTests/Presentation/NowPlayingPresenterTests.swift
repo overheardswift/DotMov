@@ -19,7 +19,7 @@ class NowPlayingPresenterTests: XCTestCase {
 		let (sut, view) = makeSUT()
 		
 		sut.didStartLoading()
-		XCTAssertEqual(view.messages, [.display(isLoading: true), .display(page: .init(isLoading: true, isLast: true, pageNumber: 0))])
+		XCTAssertEqual(view.messages, [.display(isLoading: true), .display(page: .init(isLoading: true, isLast: true, pageNumber: 0, isSearchActive: false))])
 	}
 	
 	func test_did_finish_loading_success_displays_feed_and_stops_loading() {
@@ -35,10 +35,10 @@ class NowPlayingPresenterTests: XCTestCase {
 		}
 		let feed = NowPlayingFeed(items: items, page: 1, totalPages: 1)
 		
-		sut.didFinishLoading(with: feed, genres: [])
+		sut.didFinishLoading(with: feed, genres: [], isSearchActive: false)
 		XCTAssertEqual(view.messages, [
 			.display(isLoading: false),
-			.display(page: .init(isLoading: false, isLast: true, pageNumber: 1)),
+			.display(page: .init(isLoading: false, isLast: true, pageNumber: 1, isSearchActive: false)),
 			.display(items: items.presentedItems(with: []))
 		])
 	}

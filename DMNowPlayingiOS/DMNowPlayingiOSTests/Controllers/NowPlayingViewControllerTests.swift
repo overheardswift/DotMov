@@ -337,6 +337,7 @@ private extension NowPlayingViewControllerTests {
 			loader: loader,
 			genresLoader: loader,
 			imageLoader: loader,
+			searchMoviesLoader: loader,
 			onSelectCallback: onSelectSpy
 		)
 		

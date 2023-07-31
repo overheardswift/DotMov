@@ -15,16 +15,23 @@ public final class NowPlayingViewController: UICollectionViewController {
 		}
 	}()
 	
+	private let loadingIndicator = UIActivityIndicatorView(style: .medium)
+	
+	private let searchBar = UISearchBar()
+	
 	var refreshController: NowPlayingRefreshController?
 	var pagingController: NowPlayingPagingController?
+	var searchController: SearchController?
 	
 	convenience init(
 		refreshController: NowPlayingRefreshController,
-		pagingController: NowPlayingPagingController
+		pagingController: NowPlayingPagingController,
+		searchController: SearchController
 	) {
 		self.init(collectionViewLayout: UICollectionViewFlowLayout())
 		self.refreshController = refreshController
 		self.pagingController = pagingController
+		self.searchController = searchController
 	}
 	
 	public override func viewDidLoad() {
@@ -37,13 +44,13 @@ public final class NowPlayingViewController: UICollectionViewController {
 		var snapshot = NSDiffableDataSourceSnapshot<Int, NowPlayingCellController>()
 		snapshot.appendSections([0])
 		snapshot.appendItems(newItems, toSection: 0)
-		dataSource.apply(snapshot, animatingDifferences: false)
+		dataSource.applySnapshotUsingReloadData(snapshot)
 	}
 	
 	func append(_ newItems: [NowPlayingCellController]) {
 		var snapshot = dataSource.snapshot()
 		snapshot.appendItems(newItems, toSection: 0)
-		dataSource.apply(snapshot, animatingDifferences: true)
+		dataSource.apply(snapshot, animatingDifferences: false)
 	}
 	
 	public override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -84,9 +91,25 @@ extension NowPlayingViewController: UICollectionViewDataSourcePrefetching {
 	}
 }
 
+extension NowPlayingViewController: UISearchBarDelegate {
+	public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		guard let text = searchBar.text, !text.isEmpty else {
+			return
+		}
+		searchController?.search(text)
+		searchBar.resignFirstResponder()
+	}
+	
+	public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		guard searchText.isEmpty else { return }
+		refreshController?.refresh()
+	}
+}
+
 private extension NowPlayingViewController {
 	func configureUI() {
 		configureCollectionView()
+		configureNavigation()
 	}
 	
 	func configureCollectionView() {
@@ -96,7 +119,16 @@ private extension NowPlayingViewController {
 		collectionView.delegate = self
 		collectionView.register(NowPlayingCell.self, forCellWithReuseIdentifier: NowPlayingCell.id)
 		collectionView.delegate = self
+		collectionView.contentInset.top = 30
+		collectionView.contentInset.bottom = 20
 		collectionView.refreshControl = refreshController?.view
+		collectionView.keyboardDismissMode = .onDrag
+	}
+	
+	func configureNavigation() {
+		searchBar.placeholder = "Type and enter"
+		searchBar.delegate = self
+		navigationItem.titleView = searchBar
 	}
 	
 	func cellController(forItemAt indexPath: IndexPath) -> NowPlayingCellController? {

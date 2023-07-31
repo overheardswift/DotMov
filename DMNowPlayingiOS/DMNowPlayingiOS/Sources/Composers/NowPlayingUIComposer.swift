@@ -16,19 +16,24 @@ public enum NowPlayingUIComposer {
 		loader: NowPlayingLoader,
 		genresLoader: GenresLoader,
 		imageLoader: ImageDataLoader,
+		searchMoviesLoader: NowPlayingLoader,
 		onSelectCallback: @escaping (Int) -> Void
 	) -> NowPlayingViewController {
 		
 		let adapter = NowPlayingPresentationAdapter(
 			nowPlayingLoader: MainQueueDispatchDecorator(loader),
-			genresLoader: MainQueueDispatchDecorator(genresLoader)
+			genresLoader: MainQueueDispatchDecorator(genresLoader),
+			searchMovieLoader: MainQueueDispatchDecorator(searchMoviesLoader)
 		)
 		
 		let refreshController = NowPlayingRefreshController(delegate: adapter)
 		let pagingController = NowPlayingPagingController(delegate: adapter)
+		let searchController = SearchController(delegate: adapter)
+		
 		let viewController = NowPlayingViewController(
 			refreshController: refreshController,
-			pagingController: pagingController
+			pagingController: pagingController,
+			searchController: searchController
 		)
 		
 		adapter.presenter = NowPlayingPresenter(

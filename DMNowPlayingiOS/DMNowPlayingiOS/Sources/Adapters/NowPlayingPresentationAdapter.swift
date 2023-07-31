@@ -14,10 +14,12 @@ final class NowPlayingPresentationAdapter {
 	
 	private let nowPlayingLoader: NowPlayingLoader
 	private let genresLoader: GenresLoader
+	private let searchMovieLoader: NowPlayingLoader
 	
-	init(nowPlayingLoader: NowPlayingLoader, genresLoader: GenresLoader) {
+	init(nowPlayingLoader: NowPlayingLoader, genresLoader: GenresLoader, searchMovieLoader: NowPlayingLoader) {
 		self.nowPlayingLoader = nowPlayingLoader
 		self.genresLoader = genresLoader
+		self.searchMovieLoader = searchMovieLoader
 	}
 }
 
@@ -35,6 +37,13 @@ extension NowPlayingPresentationAdapter: NowPlayingPagingControllerDelegate {
 	}
 }
 
+extension NowPlayingPresentationAdapter: SearchControllerDelegate {
+	func didClickSearch(with keyword: String) {
+		presenter?.didStartLoading()
+		searchMovies(page: 1, with: keyword)
+	}
+}
+
 private extension NowPlayingPresentationAdapter {
 	func loadNowPlayingMovies(page: Int) {
 		nowPlayingLoader.execute(.init(page: page)) { [weak self] result in
@@ -48,14 +57,26 @@ private extension NowPlayingPresentationAdapter {
 		}
 	}
 	
-	func loadGenres(feed: NowPlayingFeed) {
+	func loadGenres(feed: NowPlayingFeed, isSearchActive: Bool = false) {
 		genresLoader.load { [weak self] result in
 			guard let self else { return }
 			switch result {
 			case let .success(genres):
-				self.presenter?.didFinishLoading(with: feed, genres: genres)
+				self.presenter?.didFinishLoading(with: feed, genres: genres, isSearchActive: isSearchActive)
 			case .failure:
-				self.presenter?.didFinishLoading(with: feed, genres: [])
+				self.presenter?.didFinishLoading(with: feed, genres: [], isSearchActive: isSearchActive)
+			}
+		}
+	}
+	
+	func searchMovies(page: Int, with keyword: String) {
+		searchMovieLoader.execute(.init(page: page, query: keyword)) { [weak self] result in
+			guard let self else { return }
+			switch result {
+			case let .success(feed):
+				self.loadGenres(feed: feed, isSearchActive: true)
+			case .failure:
+				self.presenter?.didFinishLoadingWithError()
 			}
 		}
 	}

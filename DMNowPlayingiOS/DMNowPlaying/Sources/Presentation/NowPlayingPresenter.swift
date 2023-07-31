@@ -33,12 +33,12 @@ public class NowPlayingPresenter {
 	
 	public func didStartLoading() {
 		loadingView.display(.init(isLoading: true))
-		pagingView.display(.init(isLoading: true, isLast: true, pageNumber: 0))
+		pagingView.display(.init(isLoading: true, isLast: true, pageNumber: 0, isSearchActive: false))
 	}
 	
-	public func didFinishLoading(with feed: NowPlayingFeed, genres: [Genre]) {
+	public func didFinishLoading(with feed: NowPlayingFeed, genres: [Genre], isSearchActive: Bool) {
 		loadingView.display(.init(isLoading: false))
-		pagingView.display(.init(isLoading: false, isLast: feed.page == feed.totalPages, pageNumber: feed.page))
+		pagingView.display(.init(isLoading: false, isLast: feed.page == feed.totalPages, pageNumber: feed.page, isSearchActive: isSearchActive))
 		view.display(.init(pageNumber: feed.page, items: feed.items.presentedItems(with: genres)))
 	}
 	

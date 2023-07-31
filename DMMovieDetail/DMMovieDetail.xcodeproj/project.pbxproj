@@ -34,6 +34,8 @@
 		4FFF39C02A7725FA0039033F /* DMMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF39BF2A7725FA0039033F /* DMMedia.framework */; };
 		4FFF39C12A7725FA0039033F /* DMMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF39BF2A7725FA0039033F /* DMMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FFF39C32A772CFC0039033F /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39C22A772CFC0039033F /* CastCell.swift */; };
+		4FFF39C52A7730F00039033F /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39C42A7730F00039033F /* Cast.swift */; };
+		4FFF39C72A77310C0039033F /* CastLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF39C62A77310C0039033F /* CastLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,8 @@
 		4FAC06412A76D57E006705DB /* MovieDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailHeaderView.swift; sourceTree = "<group>"; };
 		4FFF39BF2A7725FA0039033F /* DMMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DMMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FFF39C22A772CFC0039033F /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
+		4FFF39C42A7730F00039033F /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
+		4FFF39C62A77310C0039033F /* CastLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,8 @@
 			children = (
 				4FAC05DE2A76BAC7006705DB /* Movie.swift */,
 				4FAC05E02A76BB39006705DB /* MovieLoader.swift */,
+				4FFF39C42A7730F00039033F /* Cast.swift */,
+				4FFF39C62A77310C0039033F /* CastLoader.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -492,8 +498,10 @@
 			files = (
 				4FAC05E92A76BC97006705DB /* MovieDetailsViewModel.swift in Sources */,
 				4FAC05E42A76BB79006705DB /* RemoteMovieLoader.swift in Sources */,
+				4FFF39C52A7730F00039033F /* Cast.swift in Sources */,
 				4FAC05E62A76BBA8006705DB /* MovieMapper.swift in Sources */,
 				4FAC05EC2A76BD45006705DB /* MovieDetailsPresenter.swift in Sources */,
+				4FFF39C72A77310C0039033F /* CastLoader.swift in Sources */,
 				4FAC05DF2A76BAC7006705DB /* Movie.swift in Sources */,
 				4FAC05E12A76BB39006705DB /* MovieLoader.swift in Sources */,
 			);

@@ -39,10 +39,10 @@ public final class RemoteCastLoader: CastLoader {
 private extension RemoteCastLoader {
 	func enrich(_ url: URL, with movieID: Int) -> URL {
 		let requestURL = url
-			.appending(path: "3")
-			.appending(path: "movie")
-			.appending(path: "\(movieID)")
-			.appending(path: "credits")
+			.appendingPathComponent("3")
+			.appendingPathComponent("movie")
+			.appendingPathComponent("\(movieID)")
+			.appendingPathComponent("credits")
 		
 		return requestURL
 	}

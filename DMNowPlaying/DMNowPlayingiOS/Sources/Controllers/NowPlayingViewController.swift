@@ -44,7 +44,7 @@ public final class NowPlayingViewController: UICollectionViewController {
 		var snapshot = NSDiffableDataSourceSnapshot<Int, NowPlayingCellController>()
 		snapshot.appendSections([0])
 		snapshot.appendItems(newItems, toSection: 0)
-		dataSource.applySnapshotUsingReloadData(snapshot)
+		dataSource.apply(snapshot)
 	}
 	
 	func append(_ newItems: [NowPlayingCellController]) {

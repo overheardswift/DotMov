@@ -47,13 +47,11 @@ public final class RemoteGenresLoader: GenresLoader {
 
 private extension RemoteGenresLoader {
 	func enrich(_ url: URL) -> URL {
-		let requestURL = url
-			.appending(path: "3")
-			.appending(path: "genre")
-			.appending(path: "movie")
-			.appending(path: "list")
-		
-		return requestURL
+		return url
+			.appendingPathComponent("3")
+			.appendingPathComponent("genre")
+			.appendingPathComponent("movie")
+			.appendingPathComponent("list")
 	}
 	
 	static func map(_ data: Data, from response: HTTPURLResponse) -> Result {

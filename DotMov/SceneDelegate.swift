@@ -39,10 +39,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 private extension SceneDelegate {
 	func makeNowPlayingScene() -> NowPlayingViewController {
-		let nowPlayingClient = URLSessionHTTPClient(session: .init(configuration: .ephemeral))
-		let imageLoaderClient = URLSessionHTTPClient()
-		let nowPlayingLoader = RemoteNowPlayingLoader(baseURL: baseURL, client: nowPlayingClient)
-		let imageLoader = RemoteImageDataLoader(client: imageLoaderClient)
+		let client = URLSessionHTTPClient()
+		let nowPlayingLoader = RemoteNowPlayingLoader(baseURL: baseURL, client: client)
+		let imageLoader = RemoteImageDataLoader(client: client)
 	
 		let viewController = NowPlayingUIComposer.compose(
 			loader: nowPlayingLoader,
@@ -58,11 +57,10 @@ private extension SceneDelegate {
 	}
 	
 	func makeMovieDetailScene(for id: Int) -> MovieDetailsViewController {
-		let client = URLSessionHTTPClient(session: .init(configuration: .ephemeral))
-		let imageLoaderClient = URLSessionHTTPClient()
+		let client = URLSessionHTTPClient()
 		let movieLoader = RemoteMovieLoader(baseURL: baseURL, client: client)
 		let castLoader = RemoteCastLoader(baseURL: baseURL, client: client)
-		let imageLoader = RemoteImageDataLoader(client: imageLoaderClient)
+		let imageLoader = RemoteImageDataLoader(client: client)
 		
 		let viewController = MovieDetailsUIComposer.compose(
 			id: id,

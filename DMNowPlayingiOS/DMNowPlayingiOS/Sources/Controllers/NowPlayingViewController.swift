@@ -96,12 +96,14 @@ extension NowPlayingViewController: UISearchBarDelegate {
 		guard let text = searchBar.text, !text.isEmpty else {
 			return
 		}
+		collectionView.refreshControl = nil
 		searchController?.search(text)
 		searchBar.resignFirstResponder()
 	}
 	
 	public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		guard searchText.isEmpty else { return }
+		collectionView.refreshControl = refreshController?.view
 		refreshController?.refresh()
 	}
 }
